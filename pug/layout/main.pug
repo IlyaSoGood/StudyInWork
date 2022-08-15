@@ -1,20 +1,20 @@
 doctype html
 html(lang="ru")
     head
-        - var title = 'Document';
-        block vars
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0")
         meta(http-equiv="X-UA-Compatible", content="ie=edge")
-        title!= title
-        link(rel="preload" href="styles.css?v={{version}}" as="style")
-        link(rel="preload" href="js/jquery.min.js" as="script")
-        link(rel="preload" href="libs.js" as="script")
-        link(rel="preload" href="main.js?v={{version}}" as="script")
-        link(rel="stylesheet" href="styles.css?v={{version}}")
+        title Простор
+        link(rel="stylesheet" href="styles.css")
+        link(rel="stylesheet" href="custom.css")
+        link(rel='shortcut icon', type='image/ico', href='favicon.ico')
 
     body
-        block main
+        .site
+            include ../../blocks/header/header
+            main.main
+                block content
+            include ../../blocks/footer/footer
 
         script(src="/js/jquery.min.js")
         script(src="/libs.js")

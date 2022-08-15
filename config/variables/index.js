@@ -16,7 +16,9 @@ module.exports = {
             "menu",
             "title",
             "button",
-            "logo"
+            "logo",
+            "links",
+            "carts"
         ],
         js: [],
         jsLibs : [
