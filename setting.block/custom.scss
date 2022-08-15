@@ -1,0 +1,14 @@
+@mixin font($name, $fileName, $weight){
+  font-family: $name;
+  src: url("fonts/" + $fileName + ".eot"); /* IE9 Compat Modes */
+  src:
+          url("fonts/" + $fileName + ".eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+          url("fonts/" + $fileName + ".woff2") format("woff2"), /* Modern Browsers */
+          url("fonts/" + $fileName + ".woff") format("woff"), /* Modern Browsers */
+          url("fonts/" + $fileName + ".svg") format("svg"), /* Legacy iOS */
+          url("fonts/" + $fileName + ".ttf") format("truetype"), /* Safari, Android, iOS */
+          url("fonts/" + $fileName + ".otf") format("opentype"); /* Open Type Font */
+  font-weight: $weight;
+  font-style: normal;
+  font-display: swap;
+}

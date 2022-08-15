@@ -1,0 +1,39 @@
+doctype html
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title Document
+        link(rel="stylesheet" href="styles.css?v={{version}}")
+
+    body
+        br
+        .container
+            h1 %Project name%
+            br
+            h6 brandmaker frontend template 2018
+            br
+            br
+            .row
+                .col-lg-12
+                    h2 Страницы
+                .col-lg-12
+                    table.table
+                        tr
+                            td №
+                            td Название
+                            td Ссылка
+                            td Готовность
+                            td Комментарий
+                        tr
+                            td 1
+                            td Главная
+                            td
+                                a(href="/main.html") перейти
+                            td 0%
+                            td ----
+
+        script(src="https://api-maps.yandex.ru/2.1/?lang=ru_RU")
+        script(src="/js/jquery.min.js")
+        script(src="/main.js?v={{version}}")
