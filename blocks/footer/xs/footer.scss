@@ -1,5 +1,50 @@
 @include media-breakpoint-up(xs) {
   .footer {
+    min-height: 1410px;
+    background: $primary-bg-blue;
+    padding-top: 36px;
+    &-contacts {
+      display: flex;
+      flex-direction: column;
+      &__logo {
+        background: url('logo.svg') left (center/contain) no-repeat;
+        width: 200px;
+        height: 41px;
+      }
+      &__link {
+        display: block;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+      &__links {
+        margin-top: 33px;
+        &-icon {
+          display: inline-block;
+          margin-right: 12px;
+        }
+        &-descr {
+          display: inline-block;
+          font-size: 14px;
+          color: $primary-font-blue;
+          text-decoration: none;
+        }
+      }
+      &__social {
+        margin-top: 33px;
+        display: flex;
+        &-item {
+          display: flex;
+          background-color: #fff;
+          border-radius: 8px;
+          margin-right: 16px;
+          width: 43px;
+          height: 43px;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    }
   }
 }
 

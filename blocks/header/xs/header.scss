@@ -1,5 +1,50 @@
 @include media-breakpoint-up(xs) {
   .header {
+    background: $primary-bg-blue;
+    &__mobile {
+      height: 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      &-button {
+        width: 20px;
+        height: 14px;
+        position: relative;
+        cursor: pointer;
+        // margin-bottom: 10px;
+        span {
+          content: "";
+          display: block;
+          height: 2px;
+          position: absolute;
+          left: 0;
+          width: 100%;
+          border-radius: 1px;
+          background-color: #000;
+          transition: all .3s ease;
+        }
+        :nth-child(2) {
+          top: 50%;
+          transform: translateY(-50%)
+        }
+        :nth-child(3) {
+          bottom: 0;
+        }
+        &_active {
+          :nth-child(1) {
+            transform: rotate(-45deg);
+            top: 5px;
+          }
+          :nth-child(2) {
+            background: 0 0;
+          }
+          :nth-child(3) {
+            transform: rotate(45deg);
+            top: 5px;
+          }
+        }
+      }
+    }
   }
 }
 

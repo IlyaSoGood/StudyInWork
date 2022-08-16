@@ -44,6 +44,15 @@ $green:   #28a745 !default;
 $teal:    #20c997 !default;
 $cyan:    #17a2b8 !default;
 
+// Custom colors
+$primary-bg-blue: #f2f5ff;
+$primary-font-blue: #33395b;
+$primary-font-light-blue: #264796;
+$primary-font-light-grey: #989898;
+
+// // Custom fonts
+// $main-font: ;
+
 $colors: () !default;
 $colors: map-merge(
                 (

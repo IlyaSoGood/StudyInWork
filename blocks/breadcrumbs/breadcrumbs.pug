@@ -1,0 +1,6 @@
+mixin breadcrumbs(arrow, active)
+    .breadcrumbs
+        .container
+            each item in arrow
+                a(href="#").breadcrumbs__link!= item
+            span.breadcrumbs__active!= active

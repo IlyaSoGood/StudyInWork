@@ -1,7 +1,12 @@
 include ../logo/logo
 header.header
     .container
-        .header__menu
-        a(href="#").header__logo
-            +logo
-        .header__phone
+        .header__mobile.d-lg-none
+            .header__mobile-button(data-role="menu-button")
+                span 
+                span 
+                span 
+            a(href="#").header__mobile-logo
+                +logo
+            a(href="tel:88332354344").header__phone
+                img(src="images/icon__header__phone.svg", alt="tel").header__mobile-phone

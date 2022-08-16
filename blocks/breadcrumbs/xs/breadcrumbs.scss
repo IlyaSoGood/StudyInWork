@@ -1,0 +1,36 @@
+@include media-breakpoint-up(xs) {
+  .breadcrumbs {
+    font-size: 13px;
+    padding: 23px 0 29px;
+    overflow-x: scroll;
+
+    .container {
+      display: flex;
+      white-space: nowrap;
+    }
+
+    &__link{
+      position: relative;
+      margin-right: 33px;
+      color: $primary-font-light-blue;
+      text-decoration: underline;
+      &::after{
+        content: "/";
+        position: absolute;
+        right: -20px;
+        color: $primary-font-light-grey;
+      }
+    }
+    &__active{
+      user-select: none;
+      color: $primary-font-light-grey;
+      padding-right: 15px;
+    }
+
+
+  }
+}
+
+@include media-breakpoint-down(xs) {
+
+}

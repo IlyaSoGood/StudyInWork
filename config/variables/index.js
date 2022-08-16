@@ -18,7 +18,9 @@ module.exports = {
             "button",
             "logo",
             "links",
-            "carts"
+            "product",
+            "catalog",
+            "breadcrumbs"
         ],
         js: [],
         jsLibs : [
