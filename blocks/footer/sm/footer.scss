@@ -1,4 +1,11 @@
 @include media-breakpoint-up(sm) {
   .footer {
+    height: 1050px;
+    .container-footer {
+      height: 620px;
+    }
+    &-info {
+      margin-top: 20px;
+    }
   }
 }

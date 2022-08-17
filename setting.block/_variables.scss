@@ -3,6 +3,16 @@
 // Variables should follow the `$component-state-property-size` formula for
 // consistent naming. Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
 
+// Custom variables
+
+$primary-black: #1F1F1F;
+$primary-red: #EF4237;
+$primary-gray: #F5F5F5;
+$border-gray: #EAEAEA;
+
+$primary-font: "TT Commons", sans-serif;
+$common-border: 1px solid $border-gray;
+
 // Color system
 
 $white:    #fff !default;
@@ -206,7 +216,8 @@ $grid-breakpoints: (
         sm: 576px,
         md: 768px,
         lg: 992px,
-        xl: 1200px
+        xl: 1200px,
+        xxl: 1400px
 ) !default;
 
 @include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
@@ -218,10 +229,11 @@ $grid-breakpoints: (
 // Define the maximum width of `.container` for different screen sizes.
 
 $container-max-widths: (
-        sm: 540px,
-        md: 720px,
-        lg: 960px,
-        xl: 1140px
+        sm: 542px,
+        md: 722px,
+        lg: 962px,
+        xl: 1142px,
+        xxl: 1344px
 ) !default;
 
 @include _assert-ascending($container-max-widths, "$container-max-widths");
@@ -232,7 +244,7 @@ $container-max-widths: (
 // Set the number of columns and specify the width of the gutters.
 
 $grid-columns:                12 !default;
-$grid-gutter-width:           30px !default;
+$grid-gutter-width:           32px !default;
 $grid-row-columns:            6 !default;
 
 

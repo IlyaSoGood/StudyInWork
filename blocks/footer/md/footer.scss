@@ -1,4 +1,8 @@
 @include media-breakpoint-up(md) {
   .footer {
+    .container-footer {
+      align-content: space-between;
+
+    }
   }
 }

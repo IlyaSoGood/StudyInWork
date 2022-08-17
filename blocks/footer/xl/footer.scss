@@ -1,4 +1,80 @@
 @include media-breakpoint-up(xl) {
   .footer {
+    height: 520px;
+    padding-bottom: 32px;
+
+    .container-footer {
+      flex-direction: row;
+      position: relative;
+      max-height: 388px;
+      justify-content: flex-end;
+    }
+
+    &-links {
+      &__wrapper {
+        margin-right: 25px;
+        &:nth-child(n) {
+          order: 1;
+        }
+        &:last-child {
+          position: absolute;
+          right: 0;
+          top: 265px;
+        }
+      }
+
+      &__list-item {
+        &:last-child {
+          margin-bottom: 26px;
+        }
+      }
+
+      &__title {
+        margin-top: 0;
+      }
+    }
+
+    &-contacts {
+      padding: 0;
+
+      &__logo {
+        width: 100%;
+      }
+
+      &__social {
+        justify-content: space-between;
+        order: 3;
+
+        &-item {
+          width: 32px;
+          height: 32px;
+          margin-right: 0;
+        }
+
+        &-icon {
+          max-width: 18px;
+        }
+      }
+
+      &__links {
+        order: 2;
+        &-icon {
+          max-width: 14px;
+          margin-right: 10px;
+        }
+      }
+    }
+
+    &-info {
+      flex-direction: row;
+      justify-content: space-between;
+      &__rights {
+        flex-direction: row;
+        margin: 0;
+        &-title {
+          margin-right: 5px;
+        }
+      }
+    }
   }
 }
