@@ -1,12 +1,40 @@
 include ../logo/logo
 header.header
-    .container
-        .header__mobile.d-lg-none
-            .header__mobile-button(data-role="menu-button")
-                span 
-                span 
-                span 
-            a(href="#").header__mobile-logo
-                +logo
-            a(href="tel:88332354344").header__phone
-                img(src="images/icon__header__phone.svg", alt="tel").header__mobile-phone
+    .header__line.d-none.d-lg-flex
+        .container
+            ul.header__items
+                each item in header
+                    li.header__item
+                        a(href="#")!= item
+
+    .header__container
+        .container
+            .header__mobile.d-lg-none
+                .header__mobile-button(data-role="menu-button")
+                    span 
+                    span 
+                    span 
+                a(href="#").header__mobile-logo
+                    +logo
+                a(href="tel:88332354344").header__mobile-phone
+                    img(src="images/icon__header__phone.svg", alt="tel").header__mobile-phone
+            //- include ../menu/menu-mobile
+    .header__main.d-none.d-lg-block
+        .container
+            .header__logo-wrapper
+                a(href="/").header__logo
+                    +logo
+                .header__logo-descr Изготовление спортивной и корпоративной<br>формы, флагов, гербов, надувных фигур,<br>продукции для голосования
+            .header__thesis-wrapper
+                .header__thesis-item
+                    .header__thesis-title 1 000
+                    .header__thesis-subtitle изделий выпускаемой продукции в сутки
+                .header__thesis-item
+                    .header__thesis-title 950
+                    .header__thesis-subtitle квадратных метров производственных площадей
+                .header__thesis-item
+                    .header__thesis-title 100
+                    .header__thesis-subtitle единиц специализированного оборудования
+            .header__contacts
+                a(href="tel:88332354344").header__contacts-phone +7 (8332) 35-43-44
+                button.buttons.buttons_light-blue Рассчитать стоимость

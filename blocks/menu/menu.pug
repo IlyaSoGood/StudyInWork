@@ -1,2 +1,20 @@
-.menu
-    span= menu.item
+nav.menu.menu_desktop.d-none.d-lg-block(data-role="menu-fixed-desktop")
+    .container
+        ul.menu__line
+            each item, i in menu
+                li.menu__item(data-id=i data-role="menu-item-desktop")
+                    a(href="#").menu__item-link!= item.item
+                    .menu__inner(data-id=i data-role="menu-submenu-desktop")
+                        each subitem in item.subitem
+                            ul.menu__subitems
+                                li.menu__subitem
+                                    a(href="#").menu__subitem-link!= subitem
+
+    //- .menu__container(data-role="menu-container")
+    //-     .container
+    //-         each item, i in menu
+    //-             .menu__inner(data-id=i data-role="menu-submenu-desktop")
+    //-                 each subitem in item.subitem
+    //-                     ul.menu__subitems
+    //-                         li.menu__subitem
+    //-                             a(href="#")!= subitem

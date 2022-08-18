@@ -12,10 +12,22 @@ html(lang="ru")
     body
         .site
             include ../../blocks/header/header
+            include ../../blocks/menu/menu
             main.main
                 block content
             include ../../blocks/footer/footer
 
+        script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js")
+        script.
+            !function (i, s, o, g, r, a, m) {
+                if (typeof window[g] === "undefined") {
+                    var script = s.createElement("script");
+                    var node = s.getElementsByTagName("script")[0];
+                    script.src = o;
+                    script.type = "text/javascript";
+                    node.parentNode.insertBefore(script, node);
+                }
+            }(window, document, "js/jquery.min.js", "jQuery");
         script(src="/js/jquery.min.js")
         script(src="/libs.js")
         script(src="/main.js?v={{version}}")

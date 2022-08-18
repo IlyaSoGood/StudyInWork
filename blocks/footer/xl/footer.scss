@@ -8,11 +8,14 @@
       position: relative;
       max-height: 388px;
       justify-content: flex-end;
+      align-content: flex-start;
     }
 
     &-links {
+      padding-right: 0;
+      padding-left: 0;
       &__wrapper {
-        margin-right: 25px;
+        // margin-right: 25px;
         &:nth-child(n) {
           order: 1;
         }
@@ -35,7 +38,7 @@
     }
 
     &-contacts {
-      padding: 0;
+      padding-right: 0;
 
       &__logo {
         width: 100%;
@@ -68,6 +71,7 @@
     &-info {
       flex-direction: row;
       justify-content: space-between;
+      margin-top: 48px;
       &__rights {
         flex-direction: row;
         margin: 0;

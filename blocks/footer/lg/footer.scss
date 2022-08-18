@@ -1,4 +1,7 @@
 @include media-breakpoint-up(lg) {
   .footer {
+    .container-footer {
+      align-content: space-around;
+    }
   }
 }
