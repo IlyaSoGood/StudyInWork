@@ -1,0 +1,15 @@
+mixin menuProductMobile
+    each item in menu
+        li.menu__block(data-role="menu-item")
+            .menu__point(class="menu__point_" + item.id)
+                a(href="#")!= item.item
+        if(item.subitem)
+            li.menu__submenu
+                ul
+                    each subitem in item.subitem
+                        li
+                            a.menu__point-subitem!= subitem
+        else
+            li
+                a(href="#").menu__block.menu__block_subitem
+                    .menu__point.menu__point-subitem!= item.item

@@ -12,6 +12,7 @@ module.exports = {
         blocksName : [
             "header",
             "footer",
+            "footer-social",
             "app",
             "menu",
             "title",
@@ -21,7 +22,7 @@ module.exports = {
             "product",
             "catalog",
             "breadcrumbs",
-            "buttons",
+            "buttons"
         ],
         js: [],
         jsLibs : [
