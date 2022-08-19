@@ -8,16 +8,16 @@ header.header
                         a(href="#")!= item
 
     .header__container
-        .container
-            .header__mobile.d-lg-none
-                .header__mobile-button(data-role="menu-button")
+        .container.container-header.d-lg-none
+            .header__mobile-button.d-lg-none(data-role="menu-button")
                     span 
                     span 
                     span 
+            .header__mobile-wrapper.d-lg-none
                 a(href="#").header__mobile-logo
                     +logo
                 a(href="tel:88332354344").header__mobile-phone
-                    img(src="images/icon__header__phone.svg", alt="tel").header__mobile-phone
+                    img(src="images/icon__header__phone.svg", alt="tel").header__mobile-icon
             include ../menu/menu-mobile
     .header__main.d-none.d-lg-block
         .container

@@ -3,17 +3,26 @@
     background: $primary-bg-blue;
     position: relative;
     z-index: 6;
-    &__mobile {
-      height: 60px;
+    .container-header {
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
+      height: 60px;
+      overflow: hidden;
+    }
+    &__mobile {
+      &-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: calc(50% + 61px);
+      }
       &-button {
         width: 20px;
         height: 14px;
         position: relative;
         cursor: pointer;
-        // margin-bottom: 10px;
+        z-index: 9999;
         span {
           content: "";
           display: block;
@@ -24,27 +33,43 @@
           border-radius: 1px;
           background-color: #000;
           transition: all .3s ease;
-        }
-        :nth-child(2) {
-          top: 50%;
-          transform: translateY(-50%)
-        }
-        :nth-child(3) {
-          bottom: 0;
+          &:nth-child(2) {
+            top: 50%;
+            transform: translateY(-50%)
+          }
+          &:nth-child(3) {
+            bottom: 0;
+          }
         }
         &_active {
-          :nth-child(1) {
-            transform: rotate(-45deg);
-            top: 5px;
+          span {
+            &:nth-child(1) {
+              transform: rotate(-45deg);
+              top: 5px;
+            }
+            &:nth-child(2) {
+              background: 0 0;
+            }
+            &:nth-child(3) {
+              transform: rotate(45deg);
+              top: 5px;
+            }
           }
-          :nth-child(2) {
-            background: 0 0;
-          }
-          :nth-child(3) {
-            transform: rotate(45deg);
-            top: 5px;
+          &::after {
+            content: '';
+            width: 3000px;
+            top: -30px;
+            height: 60px;
+            background: #fff;
+            position: absolute;
+            z-index: -1;
+            left: -100px;
           }
         }
+      }
+
+      &-phone {
+        margin-left: auto;
       }
     }
 
