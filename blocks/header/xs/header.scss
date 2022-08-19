@@ -1,6 +1,8 @@
 @include media-breakpoint-up(xs) {
   .header {
     background: $primary-bg-blue;
+    position: relative;
+    z-index: 6;
     &__mobile {
       height: 60px;
       display: flex;
