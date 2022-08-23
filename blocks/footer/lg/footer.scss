@@ -3,5 +3,10 @@
     .container-footer {
       align-content: space-around;
     }
+    &-links {
+      &__wrapper {
+        margin-left: 20px;
+      }
+    }
   }
 }

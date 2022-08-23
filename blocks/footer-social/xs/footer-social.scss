@@ -1,5 +1,18 @@
 @include media-breakpoint-up(xs) {
-  .footer-social {
+  .footer-contacts__social {
+      margin-top: 30px;
+      display: flex;
+      order: 2;
+      &-item {
+        display: flex;
+        background-color: #fff;
+        border-radius: 8px;
+        margin-right: 16px;
+        width: 43px;
+        height: 43px;
+        justify-content: center;
+        align-items: center;
+      }
   }
 }
 

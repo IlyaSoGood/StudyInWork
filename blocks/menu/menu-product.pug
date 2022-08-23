@@ -3,11 +3,12 @@ mixin menuProductMobile
         if(item.subitem)
             li.menu__block(data-role="menu-item")
                 a(href="#").menu__point(class="menu__point_" + item.id)!= item.item
+                button.menu__submenu-button(data-role="submenu-button")
             li.menu__submenu
                 ul
                     each subitem in item.subitem
                         li
                             a.menu__point-subitem!= subitem
         else
-            li.menu__block.menu__block_last(data-role="menu-item")
+            li.menu__block.menu__block_last
                 a(href="#").menu__point(class="menu__point_" + item.id)!= item.item

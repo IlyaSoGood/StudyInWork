@@ -8,7 +8,7 @@
       align-items: center;
       justify-content: space-between;
       height: 60px;
-      overflow: hidden;
+      // overflow: hidden;
     }
     &__mobile {
       &-wrapper {
@@ -42,6 +42,8 @@
           }
         }
         &_active {
+          position: absolute;
+          left: 25px;
           span {
             &:nth-child(1) {
               transform: rotate(-45deg);
@@ -58,12 +60,13 @@
           &::after {
             content: '';
             width: 3000px;
-            top: -30px;
+            top: -23px;
+            right: 0;
             height: 60px;
             background: #fff;
             position: absolute;
             z-index: -1;
-            left: -100px;
+            left: -400px;
           }
         }
       }
