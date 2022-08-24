@@ -1,5 +1,14 @@
 @include media-breakpoint-up(xs) {
-  .button {
+  .button-offer {
+    width: 310px;
+    height: 48px;
+    border-radius: 8px;
+    background: $primary-font-light-blue;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+    border: none;
   }
 }
 

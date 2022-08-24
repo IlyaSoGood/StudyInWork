@@ -23,7 +23,8 @@ module.exports = {
             "catalog",
             "breadcrumbs",
             "buttons",
-            "header-contacts"
+            "header-contacts",
+            "modal-offer"
         ],
         js: [],
         jsLibs : [

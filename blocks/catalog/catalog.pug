@@ -1,1 +1,8 @@
 .catalog
+    .container
+        h1.title Спортивная форма для хоккея
+        include ../button/button-offer
+    ul.product-links
+        each item in catalog
+            li.product-links__item
+                a.product-link(href="#")!= item.item
