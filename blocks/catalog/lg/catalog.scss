@@ -1,4 +1,14 @@
 @include media-breakpoint-up(lg) {
   .catalog {
+    .title-wrapper {
+      display: flex;
+      justify-content: space-between;
+    }
+    .title {
+      font-size: 32px;
+    }
+    .product-links {
+      overflow-x: auto;
+    }
   }
 }

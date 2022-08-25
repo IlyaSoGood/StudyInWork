@@ -6,20 +6,22 @@
     margin-bottom: 20px;
   }
   .catalog {
+    [data-role="modal-offer"] {
+      height: 48px;
+      width: 310px;
+    }
     .product-links {
-      padding-left: 15px;
-      // padding-right: 15px;
+      .container {
+        display: flex;
+        white-space: nowrap;
+      }
       overflow-x: scroll;
-      display: flex;
-      white-space: nowrap;
       margin-top: 24px;
       padding-bottom: 32px;
       margin-bottom: 0;
-      &__item {
-        height: 36px;
-        border-radius: 8px;
-        background: $primary-bg-blue;
+      li.buttons {
         margin-right: 15px;
+        height: 36px;
       }
       .product-link {
         padding: 0 16px;
@@ -30,6 +32,9 @@
         display: flex;
         align-items: center;
       }
+    }
+    .buttons_offer {
+      width: 310px;
     }
   }
 }

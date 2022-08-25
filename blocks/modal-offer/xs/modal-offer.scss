@@ -1,5 +1,69 @@
 @include media-breakpoint-up(xs) {
   .modal-offer {
+    display: none;
+    background-color: #ffffff;
+    border-radius: 16px;
+    width: 343px;
+    min-height: 450px;
+    padding: 32px 24px 48px;
+    position: relative;
+    .title {
+      font-size: 24px;
+    }
+    &__descr, .policy__text {
+      color: $primary-font-light-grey;
+      font-size: 13px;
+      font-weight: 400;
+    }
+    &__phone {
+      margin-top: 27px;
+      border-radius: 8px;
+      border: 1px solid #E6E6E6;
+      width: 295px;
+      height: 52px;
+      padding-left: 20px;
+      &::placeholder {
+        color: #000;
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+    .policy {
+      margin-top: 15px;
+      &__link {
+        color: $primary-font-blue;
+        text-decoration: underline;
+        text-align: center;
+        font-weight: 400;
+        font-size: 12px;
+      }
+    }
+    &__close {
+      width: 40px;
+      height: 40px;
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      cursor: pointer;
+      span {
+        position: absolute;
+        height: 2px;
+        width: 16px;
+        background: $primary-font-light-grey;
+        right: 33%;
+        top: 45%;
+        &:nth-child(1) {
+          transform: rotate(-45deg);
+        }
+        &:nth-child(2) {
+          transform: rotate(45deg)
+        }
+      }
+    }
+    .fancybox-close-small{
+      display: none;
+    }
   }
 }
 
