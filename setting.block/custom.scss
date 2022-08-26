@@ -90,8 +90,12 @@ body{
     list-style-type: none;
   }
 }
-
-
+.compensate-for-scrollbar {
+  margin-right: 0;
+}
+.img {
+  max-width: 100%;
+}
 
 .show {
   display: block;

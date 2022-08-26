@@ -1,4 +1,6 @@
 @include media-breakpoint-up(sm) {
   .modal-offer {
+    max-width: 416px;
+    padding: 35px 40px 40px;
   }
 }

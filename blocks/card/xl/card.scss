@@ -1,0 +1,21 @@
+@include media-breakpoint-up(xl) {
+  .card {
+    &-link {
+      padding-bottom: 44px;
+    }
+    &__params {
+      display: flex;
+      justify-content: space-between;
+      &-wrapper {
+        flex-direction: column;
+      }
+
+    }
+    &__name {
+      font-size: 16px;
+    }
+    &__price, &__amount {
+      font-size: 14px;
+    }
+  }
+}

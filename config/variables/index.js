@@ -16,7 +16,6 @@ module.exports = {
             "app",
             "menu",
             "title",
-            "button",
             "logo",
             "links",
             "product",
@@ -24,7 +23,9 @@ module.exports = {
             "breadcrumbs",
             "buttons",
             "header-contacts",
-            "modal-offer"
+            "modal",
+            "card",
+            "another"
         ],
         js: [],
         jsLibs : [

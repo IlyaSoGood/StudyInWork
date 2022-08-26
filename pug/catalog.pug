@@ -1,5 +1,10 @@
 extends layout/main
+include ../blocks/card/card
+include ../blocks/breadcrumbs/breadcrumbs
 block content
-    include ../blocks/breadcrumbs/breadcrumbs
-    +breadcrumbs(["Главная", "Хлебные крошки", "Хлебные крошки", "Хлебные крошки"], "Хлебные крошки")
-    include ../blocks/catalog/catalog
+    section
+        +breadcrumbs(["Главная", "Хлебные крошки", "Хлебные крошки", "Хлебные крошки"], "Хлебные крошки")
+        include ../blocks/catalog/catalog
+        .container
+            +card(8)
+        +modal('modal-offer')

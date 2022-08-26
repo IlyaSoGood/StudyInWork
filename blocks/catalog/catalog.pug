@@ -2,10 +2,9 @@
     .container
         .title-wrapper
             h1.title Спортивная форма для хоккея
-            include ../button/button-offer
-        include ../modal-offer/modal-offer
+            include ../buttons/button-offer
     ul.product-links
         .container
             each item in catalog
                 li.buttons.buttons_light-blue
-                    a.product-link(href="#")!= item.item
+                    a.product-link(href="#")!= item.category
