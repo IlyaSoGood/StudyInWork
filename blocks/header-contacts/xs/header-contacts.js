@@ -1,4 +1,4 @@
-export default function initHeader-contacts() 
+export default function initHeaderContacts() 
 { 
  //Module code goes here 
 }

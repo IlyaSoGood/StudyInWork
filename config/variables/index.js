@@ -25,11 +25,14 @@ module.exports = {
             "header-contacts",
             "modal",
             "card",
-            "another"
+            "card-product",
+            "card-category"
         ],
         js: [],
         jsLibs : [
-            "node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js"
+            "node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js",
+            "node_modules/lazysizes/lazysizes.min.js",
+            "node_modules/inputmask/dist/inputmask.min.js"
         ],
         json: "blocks/**/*.json",
         css: [],

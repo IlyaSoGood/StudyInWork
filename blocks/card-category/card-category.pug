@@ -1,0 +1,5 @@
+.card-category
+    h2.title Другие&nbsp;разделы&nbsp;в&nbsp;категории «Спортивная&nbsp;форма»
+    .card-category__links-wrapper
+        each item in cardCategory.item
+            a(href="#").card-category__link.buttons.buttons_light-blue!= cardCategory.name + '&nbsp;' + item

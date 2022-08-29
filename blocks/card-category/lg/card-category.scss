@@ -1,0 +1,17 @@
+@include media-breakpoint-up(lg) {
+  .card-category {
+    &__links-wrapper {
+      display: flex;
+      justify-content: space-between;
+    }
+    &__link {
+      max-width: 200px;
+      height: 100px;
+    }
+    .buttons {
+      padding-left: 25px;
+      text-align: start;
+      // padding-right: 20px
+    }
+  }
+}

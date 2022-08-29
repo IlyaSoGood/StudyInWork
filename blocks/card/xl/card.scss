@@ -1,7 +1,7 @@
 @include media-breakpoint-up(xl) {
   .card {
     &-link {
-      padding-bottom: 44px;
+      // padding-bottom: 44px;
     }
     &__params {
       display: flex;
@@ -17,5 +17,6 @@
     &__price, &__amount {
       font-size: 14px;
     }
+
   }
 }

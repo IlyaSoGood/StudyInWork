@@ -8,6 +8,7 @@
     position: relative;
     .title {
       font-size: 24px;
+      padding-right: 5px;
     }
     &__descr, .policy__text {
       color: $primary-font-light-grey;
@@ -42,8 +43,8 @@
       width: 40px;
       height: 40px;
       position: absolute;
-      top: 15px;
-      right: 15px;
+      top: 13px;
+      right: 13px;
       cursor: pointer;
       span {
         position: absolute;

@@ -1,4 +1,24 @@
 @include media-breakpoint-up(lg) {
   .card {
+    &__inner {
+      padding-bottom: 33px;
+      &:hover {
+        .card__hidden {
+          display: flex;
+        }
+      }
+    }
+    &__hidden {
+      margin-top: 23px;
+      display: flex;
+      justify-content: space-between;
+      display: none;
+      .buttons {
+        width: 130px;
+      }
+      .buttons_light-blue {
+
+      }
+    }
   }
 }

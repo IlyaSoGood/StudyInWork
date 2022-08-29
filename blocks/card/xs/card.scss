@@ -1,18 +1,15 @@
 @include media-breakpoint-up(xs) {
   .card {
     &-link {
-      padding-bottom: 33px;
       display: block;
       &:hover {
         text-decoration: none;
       }
     }
     &__image {
-      border: 1px solid grey;
+      border: 1px solid #e6e6e6;
       border-radius: 16px;
       overflow: hidden;
-      // max-width: 165px;
-      // max-height: 230px;
       margin: 0 auto;
     }
     &__params {
