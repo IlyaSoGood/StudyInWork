@@ -1,35 +1,36 @@
 mixin card(count)
-    .row
-        - for (var i=0; i < count; i++)
-            .col-6.col-lg-4
-                .card__inner
-                    a(href="#").card-link
-                        .card__image
-                            // изображения нарезаны для всех десктопных разрешений + мобилка + webp, если какие-то разрешения не нужны, можно убрать
-                            picture
-                                // img size 587/780
-                                source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i}/587/780.webp` media="(min-width: 1900px)" type="image/webp")
-                                // img size 587/780
-                                source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i}/587/780` media="(min-width: 1900px)" type="image/jpeg")
-                                // img size 435/578
-                                source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i}/435/578.webp` media="(min-width: 1430px)" type="image/webp")
-                                // img size 435/578
-                                source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i}/435/578` media="(min-width: 1430px)" type="image/jpeg")
-                                // img size 350/465
-                                source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i}/350/465.webp` media="(min-width: 768px)" type="image/webp")
-                                // img size 350/465
-                                source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i}/350/465` media="(min-width: 768px)" type="image/jpeg")
-                                // img size 270/370
-                                source(srcset="/images/card__placeholder_mobile.jpg" data-srcset=`https://picsum.photos/id/1${i}/270/370.webp` media="(min-width: 300px)" type="image/webp")
-                                // img size 270/370
-                                source(srcset="/images/card__placeholder_mobile.jpg" data-srcset=`https://picsum.photos/id/1${i}/270/370` media="(min-width: 300px)" type="image/jpeg")
-                                // img size 587/780
-                                img(src="/images/card__placeholder.jpg" data-src=`https://picsum.photos/id/1${i}/587/780` alt="Название товара").img.lazyload
-                        .card__params
-                            .card__name Наименование изделия
-                            .card__params-wrapper
-                                .card__price от 3 990 руб.
-                                .card__amount от 10 штук
-                    .card__hidden
-                        button.buttons.buttons_blue Оставить заявку
-                        a(href="#").buttons.buttons_light-blue Подробнее
+    .card
+        .row
+            - for (var i=0; i < count; i++)
+                .col-6.col-lg-4
+                    .card__inner(data-role="card-hover")
+                        a(href="#").card-link
+                            .card__image
+                                // изображения нарезаны для всех десктопных разрешений + мобилка + webp, если какие-то разрешения не нужны, можно убрать
+                                picture
+                                    // img size 587/780
+                                    source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i}/587/780.webp` media="(min-width: 1900px)" type="image/webp")
+                                    // img size 587/780
+                                    source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i}/587/780` media="(min-width: 1900px)" type="image/jpeg")
+                                    // img size 435/578
+                                    source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i}/435/578.webp` media="(min-width: 1430px)" type="image/webp")
+                                    // img size 435/578
+                                    source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i}/435/578` media="(min-width: 1430px)" type="image/jpeg")
+                                    // img size 350/465
+                                    source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i}/350/465.webp` media="(min-width: 768px)" type="image/webp")
+                                    // img size 350/465
+                                    source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i}/350/465` media="(min-width: 768px)" type="image/jpeg")
+                                    // img size 270/370
+                                    source(srcset="/images/card__placeholder_mobile.jpg" data-srcset=`https://picsum.photos/id/1${i}/270/370.webp` media="(min-width: 300px)" type="image/webp")
+                                    // img size 270/370
+                                    source(srcset="/images/card__placeholder_mobile.jpg" data-srcset=`https://picsum.photos/id/1${i}/270/370` media="(min-width: 300px)" type="image/jpeg")
+                                    // img size 587/780
+                                    img(src="/images/card__placeholder.jpg" data-src=`https://picsum.photos/id/1${i}/587/780` alt="Название товара").img.lazyload.card__img
+                            .card__params
+                                .card__name Наименование изделия
+                                .card__params-wrapper
+                                    .card__price от 3 990 руб.
+                                    .card__amount от 10 штук
+                        .card__hidden
+                            button.buttons.buttons_blue(data-link="#modal-request") Оставить заявку
+                            a(href="#").buttons.buttons_light-blue Подробнее

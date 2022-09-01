@@ -1,5 +1,8 @@
 @include media-breakpoint-up(xs) {
   .card {
+    &__inner {
+      padding-bottom: 25px;
+    }
     &-link {
       display: block;
       &:hover {
@@ -40,6 +43,9 @@
       color: $primary-font-light-grey;
       display: inline-block;
       vertical-align: middle;
+    }
+    &__hidden {
+      display: none;
     }
   }
 }
