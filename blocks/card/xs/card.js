@@ -47,17 +47,89 @@ export default function initCard()
     }
 
     
-
+    // Попытка создания своего слайдера внутри элемента по наведению через расчет координат курсора мыши
     if(isDesktop) {
-        const images = document.querySelectorAll('.card__img');
-        images.forEach((item) => {
-            item.addEventListener('mousemove', (e) => {
-                let x = e.pageX,
-                y = e.pageY;
-                console.log(`${x - item.offsetLeft}:${y - item.offsetTop}`);
+        const cardInners = document.querySelectorAll('.card__inner');
+        
+        cardInners.forEach((inner, i) => {
+            const image = inner.querySelector('.card__image'),
+                  imgs = inner.querySelectorAll('.card__img');
+            
+            let imageRect = image.getBoundingClientRect();
+
+            window.addEventListener('resize', function(){
+                imageRect = image.getBoundingClientRect();
+            });
+            window.addEventListener('scroll', function(){
+                imageRect = image.getBoundingClientRect();
+            });
+
+            const bottomLine = document.createElement('div');
+            bottomLine.classList.add('card-image__bottom-line');
+            image.append(bottomLine);
+
+            image.addEventListener('mousemove', (e) => {
+                // let x = e.pageX,
+                //     y = e.pageY;
+                // console.log(`${image.offsetLeft}:${iamge.offsetTop}`);  Смещение img относительно контейнера col
+                // console.log(`${x}:${y}`);  Положение курсора мыши относительно документа
+
+
+                // Получение координат мыши относительно image
+                let top = imageRect.top + window.pageYOffset,
+                    left = imageRect.left + window.pageXOffset,
+                // Координаты мыши
+                    relX = e.pageX - left,
+                    relY = e.pageY - top,
+                // Расчет количества невидимых областей
+                    numArea = imgs.length,
+                // Расчет ширины невидимой области наведения
+                    widthArea = imageRect.width / numArea;
+                
+                // Устранение отрицательных значений relX при вычитании, так как left(imageRect.left) принимает дробное большее значение (696px  - 696.3125 px)
+                if (relX < 0) {
+                    relX = 0;
+                }
+
+                // Проверка на соответствие области и задание идентификатора img
+                let count = Math.floor(relX/widthArea);
+
+                // Отображение нужного img
+                function showImg() {
+                    imgs.forEach((item, j) => {
+                        if (j !== count) {
+                            item.classList.add('hide');
+                            item.classList.remove('show');
+                        }
+                    });
+                    imgs[count].classList.remove('hide');
+                    imgs[count].classList.add('show');
+
+                }
+                showImg();                
+                
+                bottomLine.style.width = widthArea + 'px';
+                bottomLine.style.marginLeft = widthArea * count + 'px';
+                // bottomLine.style.width = 200px;
+
+
+                // Использование консоли при разработке функции
+                // console.log(JSON.stringify(imageRect));
+                // console.log(`(relX)${relX} = ${e.pageX} - ${left}`);
+                // console.log(`left = ${imageRect.left} + ${window.pageXOffset}`);
+                // console.log(`${numArea}:${widthArea}`);
+                // console.log(count);
+
+
             });
         });
     }
+
+
+
+
+
+
     
     //фиксированные размеры для карточек с эффектом наведения
     // function imageHoverInit() {

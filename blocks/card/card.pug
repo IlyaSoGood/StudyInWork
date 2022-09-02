@@ -25,7 +25,46 @@ mixin card(count)
                                     // img size 270/370
                                     source(srcset="/images/card__placeholder_mobile.jpg" data-srcset=`https://picsum.photos/id/1${i}/270/370` media="(min-width: 300px)" type="image/jpeg")
                                     // img size 587/780
-                                    img(src="/images/card__placeholder.jpg" data-src=`https://picsum.photos/id/1${i}/587/780` alt="Название товара").img.lazyload.card__img
+                                    img(src="/images/card__placeholder.jpg" data-src=`https://picsum.photos/id/1${i}/587/780` alt="Название товара").img.lazyload.card__img.show
+                                picture
+                                    // img size 587/780
+                                    source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i+1}/587/780.webp` media="(min-width: 1900px)" type="image/webp")
+                                    // img size 587/780
+                                    source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i+1}/587/780` media="(min-width: 1900px)" type="image/jpeg")
+                                    // img size 435/578
+                                    source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i+1}/435/578.webp` media="(min-width: 1430px)" type="image/webp")
+                                    // img size 435/578
+                                    source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i+1}/435/578` media="(min-width: 1430px)" type="image/jpeg")
+                                    // img size 350/465
+                                    source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i+1}/350/465.webp` media="(min-width: 768px)" type="image/webp")
+                                    // img size 350/465
+                                    source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i+1}/350/465` media="(min-width: 768px)" type="image/jpeg")
+                                    // img size 270/370
+                                    source(srcset="/images/card__placeholder_mobile.jpg" data-srcset=`https://picsum.photos/id/1${i+1}/270/370.webp` media="(min-width: 300px)" type="image/webp")
+                                    // img size 270/370
+                                    source(srcset="/images/card__placeholder_mobile.jpg" data-srcset=`https://picsum.photos/id/1${i+1}/270/370` media="(min-width: 300px)" type="image/jpeg")
+                                    // img size 587/780
+                                    img(src="/images/card__placeholder.jpg" data-src=`https://picsum.photos/id/1${i+1}/587/780` alt="Название товара").img.lazyload.card__img.hide
+                                picture
+                                    // img size 587/780
+                                    source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i+3}/587/780.webp` media="(min-width: 1900px)" type="image/webp")
+                                    // img size 587/780
+                                    source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i+3}/587/780` media="(min-width: 1900px)" type="image/jpeg")
+                                    // img size 435/578
+                                    source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i+3}/435/578.webp` media="(min-width: 1430px)" type="image/webp")
+                                    // img size 435/578
+                                    source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i+3}/435/578` media="(min-width: 1430px)" type="image/jpeg")
+                                    // img size 350/465
+                                    source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i+3}/350/465.webp` media="(min-width: 768px)" type="image/webp")
+                                    // img size 350/465
+                                    source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i+3}/350/465` media="(min-width: 768px)" type="image/jpeg")
+                                    // img size 270/370
+                                    source(srcset="/images/card__placeholder_mobile.jpg" data-srcset=`https://picsum.photos/id/1${i+3}/270/370.webp` media="(min-width: 300px)" type="image/webp")
+                                    // img size 270/370
+                                    source(srcset="/images/card__placeholder_mobile.jpg" data-srcset=`https://picsum.photos/id/1${i+3}/270/370` media="(min-width: 300px)" type="image/jpeg")
+                                    // img size 587/780
+                                    img(src="/images/card__placeholder.jpg" data-src=`https://picsum.photos/id/1${i+3}/587/780` alt="Название товара").img.lazyload.card__img.hide
+                                //- .card-image__bottom-line
                             .card__params
                                 .card__name Наименование изделия
                                 .card__params-wrapper
