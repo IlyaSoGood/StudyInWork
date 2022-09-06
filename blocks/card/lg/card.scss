@@ -1,12 +1,5 @@
 @include media-breakpoint-up(lg) {
   .card {
-    .card-image__bottom-line {
-      position: absolute;
-      width: 100px;
-      height: 3px;
-      bottom: 0;
-      background-color: $primary-font-light-blue;
-    }
     &__inner {
       padding-bottom: 33px;
       &.hover {

@@ -47,16 +47,27 @@ export default function initCard()
     }
 
     
-    // Попытка создания своего слайдера внутри элемента по наведению через расчет координат курсора мыши
+    // Создание своего слайдера внутри элемента по наведению через расчет координат курсора мыши
     if(isDesktop) {
         const cardInners = document.querySelectorAll('.card__inner');
-        
+
         cardInners.forEach((inner, i) => {
             const image = inner.querySelector('.card__image'),
                   imgs = inner.querySelectorAll('.card__img');
             
-            let imageRect = image.getBoundingClientRect();
+            let imageRect = image.getBoundingClientRect(),
+                // Расчет количества невидимых областей
+                numArea = imgs.length,
+                // Расчет ширины невидимой области наведения
+                widthArea = imageRect.width / numArea;
+            
+            // Создание полоски-индикатора фото
+            const bottomLine = document.createElement('div');
+            bottomLine.classList.add('card-image__bottom-line');
+            image.append(bottomLine);
+            bottomLine.style.width = widthArea + 'px';
 
+            // Получение прямоугольника-координат при скролле страницы
             window.addEventListener('resize', function(){
                 imageRect = image.getBoundingClientRect();
             });
@@ -64,9 +75,16 @@ export default function initCard()
                 imageRect = image.getBoundingClientRect();
             });
 
-            const bottomLine = document.createElement('div');
-            bottomLine.classList.add('card-image__bottom-line');
-            image.append(bottomLine);
+            const source = image.querySelectorAll('source');
+            // const source = image.getElementsByTagName('source');
+            // Загрузка изображений
+            function loadImg() {
+                source.forEach(solo=> {
+                    let dataSrcSet = solo.getAttribute('data-srcset');
+                    solo.srcset = dataSrcSet;
+                });
+            }
+            image.addEventListener('mouseenter', loadImg);
 
             image.addEventListener('mousemove', (e) => {
                 // let x = e.pageX,
@@ -74,17 +92,13 @@ export default function initCard()
                 // console.log(`${image.offsetLeft}:${iamge.offsetTop}`);  Смещение img относительно контейнера col
                 // console.log(`${x}:${y}`);  Положение курсора мыши относительно документа
 
-
-                // Получение координат мыши относительно image
+                // 1. Получение координат мыши относительно image
+                    // 1.1 Координаты image относительно document
                 let top = imageRect.top + window.pageYOffset,
                     left = imageRect.left + window.pageXOffset,
-                // Координаты мыши
+                    // 1.2 Координаты мыши относительно img
                     relX = e.pageX - left,
-                    relY = e.pageY - top,
-                // Расчет количества невидимых областей
-                    numArea = imgs.length,
-                // Расчет ширины невидимой области наведения
-                    widthArea = imageRect.width / numArea;
+                    relY = e.pageY - top;
                 
                 // Устранение отрицательных значений relX при вычитании, так как left(imageRect.left) принимает дробное большее значение (696px  - 696.3125 px)
                 if (relX < 0) {
@@ -96,6 +110,7 @@ export default function initCard()
 
                 // Отображение нужного img
                 function showImg() {
+
                     imgs.forEach((item, j) => {
                         if (j !== count) {
                             item.classList.add('hide');
@@ -108,19 +123,15 @@ export default function initCard()
                 }
                 showImg();                
                 
-                bottomLine.style.width = widthArea + 'px';
+                // Перемещение полоски-индикатора в нужную область
                 bottomLine.style.marginLeft = widthArea * count + 'px';
-                // bottomLine.style.width = 200px;
-
-
+                
                 // Использование консоли при разработке функции
                 // console.log(JSON.stringify(imageRect));
                 // console.log(`(relX)${relX} = ${e.pageX} - ${left}`);
                 // console.log(`left = ${imageRect.left} + ${window.pageXOffset}`);
                 // console.log(`${numArea}:${widthArea}`);
                 // console.log(count);
-
-
             });
         });
     }
