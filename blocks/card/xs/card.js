@@ -76,64 +76,72 @@ export default function initCard()
             });
 
             const source = image.querySelectorAll('source');
-            // const source = image.getElementsByTagName('source');
-            // Загрузка изображений
-            function loadImg() {
-                source.forEach(solo=> {
+            // Загрузка изображений и только после этого работа слайдера
+            function loadImg(callback) {
+                source.forEach((solo) => {
                     let dataSrcSet = solo.getAttribute('data-srcset');
-                    solo.srcset = dataSrcSet;
+                    if (solo.srcset !== dataSrcSet) {
+                        solo.srcset = dataSrcSet;
+                    }
+                    callback();
                 });
             }
-            image.addEventListener('mouseenter', loadImg);
+            image.addEventListener('mouseenter', loadImg(sliderOnMove));
 
-            image.addEventListener('mousemove', (e) => {
-                // let x = e.pageX,
-                //     y = e.pageY;
-                // console.log(`${image.offsetLeft}:${iamge.offsetTop}`);  Смещение img относительно контейнера col
-                // console.log(`${x}:${y}`);  Положение курсора мыши относительно документа
+            function sliderOnMove () {
+                image.addEventListener('mousemove', (e) => {
+                    // let x = e.pageX,
+                    //     y = e.pageY;
+                    // console.log(`${image.offsetLeft}:${iamge.offsetTop}`);  Смещение img относительно контейнера col
+                    // console.log(`${x}:${y}`);  Положение курсора мыши относительно документа
+    
+                    // 1. Получение координат мыши относительно image
+                        // 1.1 Координаты image относительно document
+                    let top = imageRect.top + window.pageYOffset,
+                        left = imageRect.left + window.pageXOffset,
+                        // 1.2 Координаты мыши относительно img
+                        relX = e.pageX - left,
+                        relY = e.pageY - top;
+                    
+                    // Устранение отрицательных значений relX при вычитании, так как left(imageRect.left) принимает дробное большее значение (696px  - 696.3125 px)
+                    if (relX < 0) {
+                        relX = 0;
+                    }
+    
+                    // Проверка на соответствие области и задание идентификатора img
+                    let count = Math.floor(relX/widthArea);
+    
+                    // Отображение нужного img
+                    function showImg() {
+    
+                        imgs.forEach((item, j) => {
+                            if (j !== count) {
+                                item.classList.add('hide');
+                                item.classList.remove('show');
+                            }
+                        });
+                        imgs[count].classList.remove('hide');
+                        imgs[count].classList.add('show');
+    
+                    }
+                    showImg();                
+                    
+                    // Перемещение полоски-индикатора в нужную область
+                    bottomLine.style.marginLeft = widthArea * count + 'px';
+                    
+                    // Использование консоли при разработке функции
+                        // console.log(JSON.stringify(imageRect));
+                        // console.log(`(relX)${relX} = ${e.pageX} - ${left}`);
+                        // console.log(`left = ${imageRect.left} + ${window.pageXOffset}`);
+                        // console.log(`${numArea}:${widthArea}`);
+                        // console.log(count);
+                });
+            }
 
-                // 1. Получение координат мыши относительно image
-                    // 1.1 Координаты image относительно document
-                let top = imageRect.top + window.pageYOffset,
-                    left = imageRect.left + window.pageXOffset,
-                    // 1.2 Координаты мыши относительно img
-                    relX = e.pageX - left,
-                    relY = e.pageY - top;
-                
-                // Устранение отрицательных значений relX при вычитании, так как left(imageRect.left) принимает дробное большее значение (696px  - 696.3125 px)
-                if (relX < 0) {
-                    relX = 0;
-                }
-
-                // Проверка на соответствие области и задание идентификатора img
-                let count = Math.floor(relX/widthArea);
-
-                // Отображение нужного img
-                function showImg() {
-
-                    imgs.forEach((item, j) => {
-                        if (j !== count) {
-                            item.classList.add('hide');
-                            item.classList.remove('show');
-                        }
-                    });
-                    imgs[count].classList.remove('hide');
-                    imgs[count].classList.add('show');
-
-                }
-                showImg();                
-                
-                // Перемещение полоски-индикатора в нужную область
-                bottomLine.style.marginLeft = widthArea * count + 'px';
-                
-                // Использование консоли при разработке функции
-                // console.log(JSON.stringify(imageRect));
-                // console.log(`(relX)${relX} = ${e.pageX} - ${left}`);
-                // console.log(`left = ${imageRect.left} + ${window.pageXOffset}`);
-                // console.log(`${numArea}:${widthArea}`);
-                // console.log(count);
-            });
         });
+    }
+    if(isMobile) {
+        
     }
 
 
