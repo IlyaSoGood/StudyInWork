@@ -16,17 +16,14 @@
       margin: 0 auto;
       position: relative;
     }
-    .card-image__bottom-line {
-      position: absolute;
-      width: 100px;
-      height: 3px;
-      bottom: 0;
-      background-color: $primary-font-light-blue;
-    }
     &__params {
       margin: 0 auto;
       max-width: 100%;
       margin-top: 10px;
+      &_product {
+        max-width: 343px;
+        margin: 0 auto;
+      }
       &-wrapper {
         display: flex;
         justify-content: space-between;
@@ -55,6 +52,13 @@
     &__hidden {
       display: none;
     }
+  }
+  .card-image__bottom-line {
+    position: absolute;
+    width: 100px;
+    height: 3px;
+    bottom: 0;
+    background-color: $primary-font-light-blue;
   }
 }
 

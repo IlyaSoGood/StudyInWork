@@ -1,0 +1,22 @@
+@include media-breakpoint-up(xs) {
+  .product-examples {
+    margin-top: 42px;
+    .title {
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 31px;
+    }
+    .card__image {
+      max-height: 214px;
+      margin-bottom: 0;
+    }
+    .card__img {
+      max-width: none;
+      max-height: 214px;
+    }
+  }
+}
+
+@include media-breakpoint-down(xs) {
+
+}

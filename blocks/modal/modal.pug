@@ -1,10 +1,10 @@
+include ../button-contacts/button-contacts
 mixin modal(type)
     .modal-offer(id!= type)
         h2.title!= (type === 'modal-offer' ? 'Запросить коммерческое предложение' : 'Оставьте заявку на необходимую продукцию')
         .modal-offer__descr!= (type === 'modal-offer' ? 'Оставьте свой номер телефона, наш менеджер перезвонит Вам чтобы уточнить куда выслать коммерческое предложение' : 'Введите номер телефона, наш менеджер перезвонит, чтобы уточнить все детали заявки')
         form.form-offer(action="" name="offer" method="post" target="_top")
-            input.modal-offer__phone(type="phone" name="phone" required)
-            button.buttons.buttons_blue.buttons_offer(type="submit") Оставить заявку
+            +button-contacts
         .policy
             .policy__text Нажимая на кнопку, вы принимаете условия
             a(href="#").policy__link Политики защиты персональной информации

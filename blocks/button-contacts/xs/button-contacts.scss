@@ -1,0 +1,31 @@
+@include media-breakpoint-up(xs) {
+  .modal-offer {
+    &__phone {
+      margin-top: 27px;
+      border-radius: 8px;
+      border: 1px solid #E6E6E6;
+      width: 100%;
+      height: 52px;
+      padding-left: 20px;
+      &::placeholder {
+        color: #000;
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+  .form__input-container.has-error {
+    .modal-offer__phone {
+      border-color: #EB5757;
+    }
+  }
+  .help-block {
+    font-size: 13px;
+    color: #EB5757;
+  }
+}
+
+@include media-breakpoint-down(xs) {
+
+}

@@ -3,13 +3,17 @@ export default function initCard()
  //Module code goes here 
     
     // Модальное окно из карточки товара
-    const src = document.querySelector('[data-link="#modal-request"]').getAttribute('data-link');
-
-    $('[data-link="#modal-request"]').fancybox({
-        // Options will go here
-            src: src,
-            type: 'inline'
+    const modalRequest = $('[data-link="#modal-request"]');
+    if(modalRequest.length > 0) {
+        let src = document.querySelector('[data-link="#modal-request"]').getAttribute('data-link');
+    
+        modalRequest.fancybox({
+            // Options will go here
+                src: src,
+                type: 'inline'
         });
+    }
+
 
     // Всплытие карточки товара
     const card = {
@@ -48,6 +52,19 @@ export default function initCard()
 
     
     // Создание своего слайдера внутри элемента по наведению через расчет координат курсора мыши
+
+    // функция загрузки изображений и только после этого работа слайдера
+    function loadImg(item, callback) {
+        const source = item.querySelectorAll('source');
+        source.forEach((solo) => {
+            let dataSrcSet = solo.getAttribute('data-srcset');
+            if (solo.srcset !== dataSrcSet) {
+                solo.srcset = dataSrcSet;
+            }
+            callback();
+        });
+    }
+
     if(isDesktop) {
         const cardInners = document.querySelectorAll('.card__inner');
 
@@ -74,19 +91,8 @@ export default function initCard()
             window.addEventListener('scroll', function(){
                 imageRect = image.getBoundingClientRect();
             });
-
-            const source = image.querySelectorAll('source');
-            // Загрузка изображений и только после этого работа слайдера
-            function loadImg(callback) {
-                source.forEach((solo) => {
-                    let dataSrcSet = solo.getAttribute('data-srcset');
-                    if (solo.srcset !== dataSrcSet) {
-                        solo.srcset = dataSrcSet;
-                    }
-                    callback();
-                });
-            }
-            image.addEventListener('mouseenter', loadImg(sliderOnMove));
+          
+            // image.addEventListener('mouseenter', loadImg(image, sliderOnMove));
 
             function sliderOnMove () {
                 image.addEventListener('mousemove', (e) => {
@@ -102,18 +108,14 @@ export default function initCard()
                         // 1.2 Координаты мыши относительно img
                         relX = e.pageX - left,
                         relY = e.pageY - top;
-                    
-                    // Устранение отрицательных значений relX при вычитании, так как left(imageRect.left) принимает дробное большее значение (696px  - 696.3125 px)
+                    // 2. Устранение отрицательных значений relX при вычитании, так как left(imageRect.left) принимает дробное большее значение (696px  - 696.3125 px)
                     if (relX < 0) {
                         relX = 0;
                     }
-    
-                    // Проверка на соответствие области и задание идентификатора img
+                    // 3. Проверка на соответствие области и задание идентификатора img
                     let count = Math.floor(relX/widthArea);
-    
-                    // Отображение нужного img
+                    // 4. Отображение нужного img
                     function showImg() {
-    
                         imgs.forEach((item, j) => {
                             if (j !== count) {
                                 item.classList.add('hide');
@@ -122,13 +124,11 @@ export default function initCard()
                         });
                         imgs[count].classList.remove('hide');
                         imgs[count].classList.add('show');
-    
                     }
                     showImg();                
-                    
-                    // Перемещение полоски-индикатора в нужную область
+                    // 5. Перемещение полоски-индикатора в нужную область
                     bottomLine.style.marginLeft = widthArea * count + 'px';
-                    
+
                     // Использование консоли при разработке функции
                         // console.log(JSON.stringify(imageRect));
                         // console.log(`(relX)${relX} = ${e.pageX} - ${left}`);
@@ -137,11 +137,52 @@ export default function initCard()
                         // console.log(count);
                 });
             }
-
+            sliderOnMove();
         });
     }
     if(isMobile) {
-        
+        const cardInners = document.querySelectorAll('.card__inner');
+        cardInners.forEach((inner, i) => {
+            const image = inner.querySelector('.card__image'),
+                  imgs = inner.querySelectorAll('.card__img');
+            function showNextImg() {
+                imgs.forEach((item, j) => {
+                    if (item.classList.contains('show') && imgs[j+1]) {
+                        item.classList.add('hide');
+                        item.classList.remove('show');
+                        imgs[j+1].classList.remove('hide');
+                        imgs[j+1].classList.add('show');
+                        console.log(imgs[j+1]);
+                        return;
+                    }
+                });  
+            }
+            let event = null;
+            let dist = Number;
+            let start;
+            let end;
+            image.addEventListener("touchstart", function (e) {
+                event = e;
+                start = e.touches[0].pageX;
+                // console.log("Move start: " + e.touches[0].pageX);
+            });
+            image.addEventListener("touchmove", function (e) {
+                if (event) {
+                    dist = e.touches[0].pageX - event.touches[0].pageX;
+                    // console.log("Move delta: " + dist);
+                }
+            });
+            image.addEventListener("touchend", function (e) {
+                event = null;
+                end = e.changedTouches[0].pageX;
+                console.log("Move start: " + start);
+                console.log("Move end: " + end);
+                if (start > end) {
+                    loadImg(image, showNextImg);
+                }
+            });
+
+        });
     }
 
 

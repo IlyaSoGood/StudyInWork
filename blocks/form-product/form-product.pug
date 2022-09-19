@@ -1,0 +1,12 @@
+.form-product
+    .product__amount
+        .product__amount-descr Введите количество
+        .product__amount-number
+            button(class="form__num-operation form__num-operation_minus" data-role="form-number-minus")
+            .form__num
+                input.form__num-input(type="number" name="quantity" value="1" min="1" step="1" max="50" data-role="form-number-field")
+            button(class="form__num-operation form__num-operation_plus" data-role="form-number-plus")
+    form
+        +button-contacts
+    .form-product__policy Нажимая на кнопку, вы принимаете условия<br>
+        a.form-product__policy-link(href="#") Политики защиты персональной информации

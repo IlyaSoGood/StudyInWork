@@ -1,0 +1,36 @@
+@include media-breakpoint-up(xs) {
+  .product-theses {
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+    display: flex;
+    max-width: 100%;
+    flex-wrap: wrap;
+    &__wrapper {
+      display: flex;
+      padding: 0;
+      justify-content: center;
+      // max-width: 157px;
+    }
+    &__descr {
+      // margin-left: 14px;
+      max-width: 115px;
+      font-size: 12px;
+      font-weight: 400;
+      color: $primary-font-blue;
+      span {
+        font-weight: 600;
+      }
+    }
+    &__icon {
+      margin-right: 14px;
+      max-height: 29px;
+      max-width: 36px;
+    }
+  }
+}
+
+@include media-breakpoint-down(xs) {
+
+}

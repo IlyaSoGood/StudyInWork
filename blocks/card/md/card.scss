@@ -1,4 +1,11 @@
 @include media-breakpoint-up(md) {
   .card {
   }
+  .card-image_mobile {
+    max-width: 350px;
+    .card__img {
+      width: auto;
+      max-height: 696px;
+    }
+  }
 }

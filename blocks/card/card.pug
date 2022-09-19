@@ -1,3 +1,89 @@
+mixin card-image(object, i)
+    -var cardMobile = ''
+    if (object.mobile)
+        //- -cardMobile = 'card-image_mobile'
+        -i = 1;
+
+    .card__image(class=cardMobile)
+        // изображения нарезаны для всех десктопных разрешений + мобилка + webp, если какие-то разрешения не нужны, можно убрать
+        picture
+            //- // img size 587/780
+            //- source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i}/587/780.webp` media="(min-width: 1900px)" type="image/webp")
+            //- // img size 587/780
+            //- source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i}/587/780` media="(min-width: 1900px)" type="image/jpeg")
+            //- // img size 435/578
+            //- source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i}/435/578.webp` media="(min-width: 1400px)" type="image/webp")
+            //- // img size 435/578
+            //- source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i}/435/578` media="(min-width: 1400px)" type="image/jpeg")
+            //- // img size 350/465
+            //- source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i}/350/465.webp` media="(min-width: 768px)" type="image/webp")
+            //- // img size 350/465
+            //- source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i}/350/465` media="(min-width: 768px)" type="image/jpeg")
+            // img size 270/370
+            source(srcset="/images/card__placeholder_mobile.jpg" data-srcset=`https://groupconstellation.com/wp-content/uploads/2019/10/town-center-one_cover-587x780.jpg` media="(min-width: 300px)" type="image/webp")
+            // img size 270/370
+            source(srcset="/images/card__placeholder_mobile.jpg" data-srcset=`https://picsum.photos/id/1${i}/270/370` media="(min-width: 300px)" type="image/jpeg")
+            // img size 587/780
+            img(src="/images/card__placeholder.jpg" data-src=`https://picsum.photos/id/1${i}/587/780` alt="Название товара").img.lazyload.card__img.show
+        picture
+            //- // img size 587/780
+            //- source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i+1}/587/780.webp` media="(min-width: 1900px)" type="image/webp")
+            //- // img size 587/780
+            //- source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i+1}/587/780` media="(min-width: 1900px)" type="image/jpeg")
+            //- // img size 435/578
+            //- source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i+1}/435/578.webp` media="(min-width: 1400px)" type="image/webp")
+            //- // img size 435/578
+            //- source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i+1}/435/578` media="(min-width: 1400px)" type="image/jpeg")
+            //- // img size 350/465
+            //- source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i+1}/350/465.webp` media="(min-width: 768px)" type="image/webp")
+            //- // img size 350/465
+            //- source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i+1}/350/465` media="(min-width: 768px)" type="image/jpeg")
+            // img size 270/370
+            source(srcset="/images/card__placeholder_mobile.jpg" data-srcset=`https://demo.phlox.pro/carpenter/wp-content/uploads/sites/125/2019/10/hutomo-abrianto-9mPl0Zo7_gQ-unsplash-587x780.jpg` media="(min-width: 300px)" type="image/webp")
+            // img size 270/370
+            source(srcset="/images/card__placeholder_mobile.jpg" data-srcset=`https://picsum.photos/id/1${i+1}/270/370` media="(min-width: 300px)" type="image/jpeg")
+            // img size 587/780
+            img(src="/images/card__placeholder.jpg" data-src=`https://picsum.photos/id/1${i+1}/587/780` alt="Название товара").img.card__img.hide
+        picture
+            //- // img size 587/780
+            //- source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i+3}/587/780.webp` media="(min-width: 1900px)" type="image/webp")
+            //- // img size 587/780
+            //- source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i+3}/587/780` media="(min-width: 1900px)" type="image/jpeg")
+            //- // img size 435/578
+            //- source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i+3}/435/578.webp` media="(min-width: 1400px)" type="image/webp")
+            //- // img size 435/578
+            //- source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i+3}/435/578` media="(min-width: 1400px)" type="image/jpeg")
+            //- // img size 350/465
+            //- source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i+3}/350/465.webp` media="(min-width: 768px)" type="image/webp")
+            //- // img size 350/465
+            //- source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i+3}/350/465` media="(min-width: 768px)" type="image/jpeg")
+            //- // img size 270/370
+            source(srcset="/images/card__placeholder_mobile.jpg" data-srcset=`https://www.honeywhatscooking.com/wp-content/uploads/2019/11/Tomato-Basil-Soup24-587x780.jpg` media="(min-width: 300px)" type="image/webp")
+            // img size 270/370
+            source(srcset="/images/card__placeholder_mobile.jpg" data-srcset=`https://picsum.photos/id/1${i+3}/270/370` media="(min-width: 300px)" type="image/jpeg")
+            // img size 587/780
+            img(src="/images/card__placeholder.jpg" data-src=`https://picsum.photos/id/1${i+3}/587/780` alt="Название товара").img.card__img.hide
+        picture
+            //- // img size 587/780
+            //- source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i+3}/587/780.webp` media="(min-width: 1900px)" type="image/webp")
+            //- // img size 587/780
+            //- source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i+3}/587/780` media="(min-width: 1900px)" type="image/jpeg")
+            //- // img size 435/578
+            //- source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i+3}/435/578.webp` media="(min-width: 1400px)" type="image/webp")
+            //- // img size 435/578
+            //- source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i+3}/435/578` media="(min-width: 1400px)" type="image/jpeg")
+            //- // img size 350/465
+            //- source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i+3}/350/465.webp` media="(min-width: 768px)" type="image/webp")
+            //- // img size 350/465
+            //- source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i+3}/350/465` media="(min-width: 768px)" type="image/jpeg")
+            // img size 270/370
+            source(srcset="/images/card__placeholder_mobile.jpg" data-srcset=`https://external-preview.redd.it/ZhZQezfileFidstH1EAqo5_NV0CPhqdab2kwVzrosog.jpg?auto=webp&s=78a109341d7591b3ae2e8f9a2686645844bfb055` media="(min-width: 300px)" type="image/webp")
+            // img size 270/370
+            source(srcset="/images/card__placeholder_mobile.jpg" data-srcset=`https://picsum.photos/id/1${i+3}/270/370` media="(min-width: 300px)" type="image/jpeg")
+            // img size 587/780
+            img(src="/images/card__placeholder.jpg" data-src=`https://picsum.photos/id/1${i+3}/587/780` alt="Название товара").img.card__img.hide
+
+
 mixin card(count)
     .card
         .row
@@ -5,84 +91,7 @@ mixin card(count)
                 .col-6.col-lg-4
                     .card__inner(data-role="card-hover")
                         a(href="#").card-link
-                            .card__image
-                                // изображения нарезаны для всех десктопных разрешений + мобилка + webp, если какие-то разрешения не нужны, можно убрать
-                                picture
-                                    // img size 587/780
-                                    source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i}/587/780.webp` media="(min-width: 1900px)" type="image/webp")
-                                    // img size 587/780
-                                    source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i}/587/780` media="(min-width: 1900px)" type="image/jpeg")
-                                    // img size 435/578
-                                    source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i}/435/578.webp` media="(min-width: 1430px)" type="image/webp")
-                                    // img size 435/578
-                                    source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i}/435/578` media="(min-width: 1430px)" type="image/jpeg")
-                                    // img size 350/465
-                                    source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i}/350/465.webp` media="(min-width: 768px)" type="image/webp")
-                                    // img size 350/465
-                                    source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i}/350/465` media="(min-width: 768px)" type="image/jpeg")
-                                    // img size 270/370
-                                    source(srcset="/images/card__placeholder_mobile.jpg" data-srcset=`https://picsum.photos/id/1${i}/270/370.webp` media="(min-width: 300px)" type="image/webp")
-                                    // img size 270/370
-                                    source(srcset="/images/card__placeholder_mobile.jpg" data-srcset=`https://picsum.photos/id/1${i}/270/370` media="(min-width: 300px)" type="image/jpeg")
-                                    // img size 587/780
-                                    img(src="/images/card__placeholder.jpg" data-src=`https://picsum.photos/id/1${i}/587/780` alt="Название товара").img.lazyload.card__img.show
-                                picture
-                                    // img size 587/780
-                                    source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i+1}/587/780.webp` media="(min-width: 1900px)" type="image/webp")
-                                    // img size 587/780
-                                    source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i+1}/587/780` media="(min-width: 1900px)" type="image/jpeg")
-                                    // img size 435/578
-                                    source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i+1}/435/578.webp` media="(min-width: 1430px)" type="image/webp")
-                                    // img size 435/578
-                                    source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i+1}/435/578` media="(min-width: 1430px)" type="image/jpeg")
-                                    // img size 350/465
-                                    source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i+1}/350/465.webp` media="(min-width: 768px)" type="image/webp")
-                                    // img size 350/465
-                                    source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i+1}/350/465` media="(min-width: 768px)" type="image/jpeg")
-                                    // img size 270/370
-                                    source(srcset="/images/card__placeholder_mobile.jpg" data-srcset=`https://picsum.photos/id/1${i+1}/270/370.webp` media="(min-width: 300px)" type="image/webp")
-                                    // img size 270/370
-                                    source(srcset="/images/card__placeholder_mobile.jpg" data-srcset=`https://picsum.photos/id/1${i+1}/270/370` media="(min-width: 300px)" type="image/jpeg")
-                                    // img size 587/780
-                                    img(src="/images/card__placeholder.jpg" data-src=`https://picsum.photos/id/1${i+1}/587/780` alt="Название товара").img.card__img.hide
-                                picture
-                                    // img size 587/780
-                                    source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i+3}/587/780.webp` media="(min-width: 1900px)" type="image/webp")
-                                    // img size 587/780
-                                    source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i+3}/587/780` media="(min-width: 1900px)" type="image/jpeg")
-                                    // img size 435/578
-                                    source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i+3}/435/578.webp` media="(min-width: 1430px)" type="image/webp")
-                                    // img size 435/578
-                                    source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i+3}/435/578` media="(min-width: 1430px)" type="image/jpeg")
-                                    // img size 350/465
-                                    source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i+3}/350/465.webp` media="(min-width: 768px)" type="image/webp")
-                                    // img size 350/465
-                                    source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i+3}/350/465` media="(min-width: 768px)" type="image/jpeg")
-                                    // img size 270/370
-                                    source(srcset="/images/card__placeholder_mobile.jpg" data-srcset=`https://picsum.photos/id/1${i+3}/270/370.webp` media="(min-width: 300px)" type="image/webp")
-                                    // img size 270/370
-                                    source(srcset="/images/card__placeholder_mobile.jpg" data-srcset=`https://picsum.photos/id/1${i+3}/270/370` media="(min-width: 300px)" type="image/jpeg")
-                                    // img size 587/780
-                                    img(src="/images/card__placeholder.jpg" data-src=`https://picsum.photos/id/1${i+3}/587/780` alt="Название товара").img.card__img.hide
-                                picture
-                                    // img size 587/780
-                                    source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i+3}/587/780.webp` media="(min-width: 1900px)" type="image/webp")
-                                    // img size 587/780
-                                    source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i+3}/587/780` media="(min-width: 1900px)" type="image/jpeg")
-                                    // img size 435/578
-                                    source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i+3}/435/578.webp` media="(min-width: 1430px)" type="image/webp")
-                                    // img size 435/578
-                                    source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i+3}/435/578` media="(min-width: 1430px)" type="image/jpeg")
-                                    // img size 350/465
-                                    source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i+3}/350/465.webp` media="(min-width: 768px)" type="image/webp")
-                                    // img size 350/465
-                                    source(srcset="/images/card__placeholder.jpg" data-srcset=`https://picsum.photos/id/1${i+3}/350/465` media="(min-width: 768px)" type="image/jpeg")
-                                    // img size 270/370
-                                    source(srcset="/images/card__placeholder_mobile.jpg" data-srcset=`https://picsum.photos/id/1${i+3}/270/370.webp` media="(min-width: 300px)" type="image/webp")
-                                    // img size 270/370
-                                    source(srcset="/images/card__placeholder_mobile.jpg" data-srcset=`https://picsum.photos/id/1${i+3}/270/370` media="(min-width: 300px)" type="image/jpeg")
-                                    // img size 587/780
-                                    img(src="/images/card__placeholder.jpg" data-src=`https://picsum.photos/id/1${i+3}/587/780` alt="Название товара").img.card__img.hide
+                            +card-image({}, i)
                             .card__params
                                 .card__name Наименование изделия
                                 .card__params-wrapper

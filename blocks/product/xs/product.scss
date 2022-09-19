@@ -1,5 +1,32 @@
 @include media-breakpoint-up(xs) {
   .product {
+    .card__image {
+      margin-bottom: 27px;
+      max-width: 350px;
+      .card__img {
+        width: 100%;
+      }
+    }
+    .card__params_product {
+      .card__params-wrapper {
+        justify-content: flex-start;
+      }
+      .card__price {
+        font-size: 20px;
+        font-weight: 600;
+      }
+      .card__amount {
+        font-size: 13px;
+        line-height: 30px;
+        margin-left: 16px;
+      }
+      .card__params-descr {
+        font-size: 13px;
+        margin-top: 20px;
+        color: $primary-font-light-grey;
+        line-height: 21px;
+      }
+    }
   }
 }
 

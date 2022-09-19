@@ -22,11 +22,16 @@ module.exports = {
             "catalog",
             "breadcrumbs",
             "buttons",
+            "button-contacts",
             "header-contacts",
             "modal",
             "card",
-            "card-product",
-            "card-category"
+            "card-category",
+            "form-product",
+            "video-product",
+            "product-examples",
+            "product-theses",
+            "product-characteristics"
         ],
         js: [],
         jsLibs : [

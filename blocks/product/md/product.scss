@@ -1,4 +1,8 @@
 @include media-breakpoint-up(md) {
   .product {
+    .card__img {
+      width: auto;
+      max-height: 696px;
+    }
   }
 }
