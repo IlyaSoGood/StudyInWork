@@ -4,8 +4,8 @@ include ../card/card
         .row
             .col-12
                 .title Наименование изделия
-                .card__inner
-                    +card-image({mobile: true}).card-product
+                .card__inner(data-swiper="swiper")
+                    +card-image({swiper: true}, i)
                 .card__params_product
                     .card__params-wrapper
                         .card__price от 3 990 руб.
@@ -15,4 +15,3 @@ include ../card/card
                 //- include ../video-product/video-product
                 include ../product-examples/product-examples
                 include ../product-theses/product-theses
-                

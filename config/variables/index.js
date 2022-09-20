@@ -37,7 +37,8 @@ module.exports = {
         jsLibs : [
             "node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js",
             "node_modules/lazysizes/lazysizes.min.js",
-            "node_modules/inputmask/dist/inputmask.min.js"
+            "node_modules/inputmask/dist/inputmask.min.js",
+            "node_modules/swiper/swiper-bundle.min.js"
         ],
         json: "blocks/**/*.json",
         css: [],

@@ -6,7 +6,7 @@ block content
         +breadcrumbs(["Главная", "Хлебные крошки", "Хлебные крошки", "Хлебные крошки"], "Хлебные крошки")
         include ../blocks/catalog/catalog
         .container
-            +card(8)
+            +card({cardHover: true, cardSwitcher: true}, 9)
         +modal('modal-offer')
         .container
             include ../blocks/card-category/card-category

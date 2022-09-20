@@ -1,7 +1,10 @@
 @include media-breakpoint-up(xs) {
+  .swiper-wrapper {
+    display: flex
+  }
   .card {
     &__inner {
-      padding-bottom: 25px;
+      margin-bottom: 25px;
     }
     &-link {
       display: block;
