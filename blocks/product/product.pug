@@ -1,11 +1,15 @@
 include ../card/card
+- var atr = 'swiper="two-slides"';
 .product
     .container
         .row
             .col-12
                 .title Наименование изделия
-                .card__inner(data-swiper="swiper")
-                    +card-image({swiper: true}, i)
+                .card__slider-wrapper
+                    .card__inner&attributes({'data-swiper-type': 'twoSlides'}, {'data-swiper': 'swiper'})
+                        +card-image({swiper: true, longImage: true}, i)
+                    .swiper__button.swiper__button_prev
+                    .swiper__button.swiper__button_next
                 .card__params_product
                     .card__params-wrapper
                         .card__price от 3 990 руб.

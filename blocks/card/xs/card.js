@@ -1,4 +1,4 @@
-import Swiper from "swiper";
+// import Swiper from "swiper";
 
 export default function initCard() 
 { 
@@ -15,7 +15,6 @@ export default function initCard()
                 type: 'inline'
         });
     }
-
 
     // Всплытие карточки товара
     const card = {
@@ -66,8 +65,6 @@ export default function initCard()
         });
     }
     const cardSwitchers = document.querySelectorAll('[data-switcher="card-switcher"]');
-
-
     if(cardSwitchers.length > 0) {
 
         cardSwitchers.forEach((inner, i) => {
@@ -150,57 +147,148 @@ export default function initCard()
                 image.addEventListener('mouseenter', sliderOnMove);
                 // sliderOnMove();
             }
-            
-
         });
     }
 
-    if(document.querySelectorAll('[data-swiper="swiper"]').length > 0) {
-        // const imgs = 
-        const swiper = new Swiper('[data-swiper="swiper"]', {
-            spaceBetween: 8,
-            // navigation: {
-            //   nextEl: '[data-role="slider__button_next"]',
-            //   prevEl: '[data-role="slider__button_prev"]',
-            // },
-            preloadImages: false,
-            lazy: true,
-            pagination: {
-                el: ".swiper-pagination",
-                renderBullet: function (index, className) {
-                  return '<span class="' + className + '">' + "</span>";
-                }
-              },
-            breakpoints: {
-                0: {
-                  slidesPerView: 1,
-                  slidesPerGroup: 1,
-                },
-                576: {
-                  spaceBetween: 8,
-                  slidesPerView: 2,
-                  slidesPerGroup: 2,
-                },
-                768: {
-                  slidesPerView: 2,
-                  slidesPerGroup: 2,
-                  spaceBetween: 20
-                }
-              }
-        });
+    //Переменные для swiper-слайдера
+    const swiperPagination = document.querySelectorAll('.swiper-pagination');
+    const swiperParents = document.querySelectorAll('[data-swiper="swiper"]');
+    let swipers = [];
+    const buttonTwoSlides = `.${'[data-swiper-button-type="twoSlides"]'}`;
+    const buttonOneSlide = `.${'[data-swiper-button-type="oneSlide"]'}`;
+    const buttonThreeSlides = `.${'[data-swiper-button-type="threeSlides"]'}`;
+    const twoSlides = '[data-swiper-type="twoSlides"]';
+    const oneSlide = '[data-swiper-type="oneSlide"]';
+    const threeSlides = '[data-swiper-type="threeSlides"]';
 
-        //Подстраивание индикатора полоски изображения под количество изображений
-        const swipers = document.querySelectorAll("[data-swiper='swiper']");
-        swipers.forEach(item => {
-          const swiperPaginations = item.querySelectorAll('.swiper-pagination-bullet');
-          swiperPaginations.forEach((pagin, i) => {
-            if (swiperPaginations.length === 1) {pagin.style.width = 0; return;}
-            pagin.style.width = ((item.offsetWidth - 20) / swiperPaginations.length) + 'px';
-            pagin.style.marginLeft = ((item.offsetWidth - 20) / swiperPaginations.length)*i + 'px';
-          });
+    window.addEventListener('DOMContentLoaded', sliderPagination);
+    window.addEventListener('DOMContentLoaded', sliderSwiper);
+
+    //Функция отображения/скрытия пагинации при смене размера окна браузера
+    function sliderPagination () {
+        const isMobile = window.innerWidth < 576;
+        const isDesktop = window.innerWidth > 576;
+        if (isMobile) {
+        swiperPagination.forEach(item => {
+            item.style.visibility = "visible";
+        });
+        } else if (isDesktop) {
+        swiperPagination.forEach(item => {
+            item.style.visibility = "hidden";
     
         });
+        }
     }
+    //Функция подстройки ширины полоски под количество изображений
+    function paginationResponsive () {
+        const swipers = document.querySelectorAll("[data-swiper='swiper']");
+        swipers.forEach(item => {
+        const swiperBullets = item.querySelectorAll('.swiper-pagination-bullet');
+        swiperBullets.forEach((pagin, i) => {
+            if (swiperBullets.length === 1) {pagin.style.width = 0; return;}
+            pagin.style.width = ((item.offsetWidth - 20) / swiperBullets.length) + 'px';
+            pagin.style.marginLeft = ((item.offsetWidth - 20) / swiperBullets.length)*i + 'px';
+        });
+        });
+    }
+    //Настройки объекта-настроек слайдера по-умолчанию
+    // let swiperObject = {
+    //     oneSlide: {
+    //         buttons: {
+    //             buttonPrev: buttonOneSlide,
+    //             buttonNext: butto
+    //         },
+    //         breaks: {
+    //             0: {
+    //                 slidesPerView: 1,
+    //                 slidesPerGroup: 1,
+    //             },
+    //             576: {
+    //                 spaceBetween: 8,
+    //                 slidesPerView: 2,
+    //                 slidesPerGroup: 2,
+    //             },
+    //             768: {
+    //                 spaceBetween: 20
+    //             }
+    //         },
+    //         paginations: {
+    
+    //         }
+    //     },
+    //     twoSlides: {
+
+    //     },
+    //     threeSlides: {
+
+    //     },
+
+    // };
+    //Настройки объекта-настроек слайдера
+    let breaks = {
+        0: {
+        slidesPerView: 1,
+        slidesPerGroup: 1,
+        },
+        576: {
+        spaceBetween: 8,
+        slidesPerView: '',
+        slidesPerGroup: '',
+        },
+        768: {
+        spaceBetween: 20
+        }
+    };
+    //Объект глубокой копии breaks
+    let newBreaks = {};
+ b
+    //Создание слайдеров-swiper для различных блоков на странице
+    function sliderSwiper () {
+        if(swiperParents.length > 0) {
+            swiperParents.forEach((swiperParent, i) => {
+                function swiperCreator (data, number) {
+                    swipers[number] = new Swiper(swiperParent, {
+                        spaceBetween: 8,
+                        navigation: {
+                          nextEl: swiperParent.parentNode.querySelector('.swiper__button_next'),
+                          prevEl: swiperParent.parentNode.querySelector('.swiper__button_prev'),
+                        },
+                        pagination: {
+                            el: '.swiper-pagination',
+                            renderBullet: function (index, className) {
+                              return '<span class="' + className + '">' + "</span>";
+                            }
+                        },
+                        on: {
+                            resize: function () {
+                              paginationResponsive();
+                              sliderPagination();
+                            },
+                          },
+                        breakpoints: data
+                    });
+                }
+                if (swiperParent.dataset.swiperType === 'oneSlide') {
+                    newBreaks = JSON.parse(JSON.stringify(breaks));
+                    newBreaks[576].slidesPerGroup = 1;
+                    newBreaks[576].slidesPerView = 1;
+                    swiperCreator(newBreaks, i);
+                }
+                if (swiperParent.dataset.swiperType === 'twoSlides') {
+                    newBreaks = JSON.parse(JSON.stringify(breaks));
+                    newBreaks[576].slidesPerGroup = 2;
+                    newBreaks[576].slidesPerView = 2;
+                    swiperCreator(newBreaks, i);
+                }
+                if(3) {
+
+                }
+
+            });
+        }
+    }
+
+
     
 
 

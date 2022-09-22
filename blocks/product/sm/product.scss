@@ -1,4 +1,7 @@
 @include media-breakpoint-up(sm) {
   .product {
+    [data-swiper-type="twoSlides"] {
+      max-width: 500px;
+    }
   }
 }

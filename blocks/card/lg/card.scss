@@ -1,7 +1,7 @@
 @include media-breakpoint-up(lg) {
   .card {
     &__inner {
-      padding-bottom: 33px;
+      // padding-bottom: 33px;
       &.hover {
         position: absolute;
         border: 1px solid #e6e6e6;
@@ -32,6 +32,14 @@
       .buttons_light-blue {
         
       }
+    }
+  }
+  .swiper__button {
+    &_prev {
+      left: 150px;
+    }
+    &_next {
+      right: 150px;
     }
   }
 }

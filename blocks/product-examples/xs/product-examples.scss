@@ -15,6 +15,9 @@
       max-height: 214px;
     }
   }
+  [data-swiper="swiper"] {
+    // max-width: none;
+  }
 }
 
 @include media-breakpoint-down(xs) {

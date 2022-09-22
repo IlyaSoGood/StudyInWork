@@ -8,4 +8,12 @@
       max-height: 696px;
     }
   }
+  .swiper__button {
+    &_prev {
+      left: 35px;
+    }
+    &_next {
+      right: 35px;
+    }
+  }
 }

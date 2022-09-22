@@ -1,6 +1,42 @@
 @include media-breakpoint-up(xs) {
-  .swiper-wrapper {
-    display: flex
+  [data-swiper="swiper"] {
+    overflow: hidden;
+    max-width: 343px;
+    margin: 0 auto;
+    position: relative;
+    .swiper-wrapper {
+      display: flex;
+      overflow: visible;
+      // border: none;
+      .swiper-slide {
+        flex-shrink: 0;
+        // max-width: 100%;
+        max-width: 343px;
+      }
+      .card__img {
+        max-width: 100%;
+        border-radius: 16px;
+      }
+    }
+    .swiper-pagination {
+      position: absolute;
+      width: calc(100% - 20px);
+      height: 3px;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .swiper-pagination-bullet {
+      transition: all 0.2s;
+      position: absolute;
+      display: block;
+      height: 100%;
+      opacity: 0;
+      background: rgb(38, 71, 150);
+    }
+    .swiper-pagination-bullet-active {
+      opacity: 1;
+    }
   }
   .card {
     &__inner {
@@ -13,7 +49,7 @@
       }
     }
     &__image {
-      border: 1px solid #e6e6e6;
+      // border: 1px solid #e6e6e6;
       border-radius: 16px;
       overflow: hidden;
       margin: 0 auto;

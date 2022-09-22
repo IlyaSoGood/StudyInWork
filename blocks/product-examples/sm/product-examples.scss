@@ -1,4 +1,7 @@
 @include media-breakpoint-up(sm) {
   .product-examples {
+    [data-swiper="swiper"] {
+      // max-width: inherit;
+    }
   }
 }

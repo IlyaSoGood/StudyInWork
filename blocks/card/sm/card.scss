@@ -1,4 +1,43 @@
 @include media-breakpoint-up(sm) {
+  // [data-swiper="swiper"] {
+  //   max-width: 500px;
+  // }
   .card {
+  }
+  .swiper__button {
+    height: 60%;
+    width: 70px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &_prev {
+      left: -30px;
+      justify-content: start;
+      &::after {
+        content: url('swiper__button-prev_enabled.svg');
+        position: absolute;
+      }
+    }
+    &_prev.swiper-button-disabled {
+      &::after {
+        content: url('swiper__button-prev_disabled.svg');
+      }
+    }
+    &_next {
+      right: -30px;
+      justify-content: end;
+      &::after {
+        content: url('swiper__button-next_enabled.svg');
+        position: absolute;
+      }
+    }
+    &_next.swiper-button-disabled {
+      &::after {
+        content: url('swiper__button-next_disabled.svg');
+      }
+    }
   }
 }

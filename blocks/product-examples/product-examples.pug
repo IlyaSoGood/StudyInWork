@@ -1,4 +1,7 @@
 .product-examples
     h2.title Примеры изготовленной нами продукции
-    .card__inner(data-swiper="swiper")
-        +card-image({swiper: true}, i)
+    .card__slider-wrapper
+        .card__inner&attributes({'data-swiper-type': 'oneSlide'}, {'data-swiper': 'swiper'})
+            +card-image({swiper: true, wideImage: true}, i)
+        .swiper__button.swiper__button_prev
+        .swiper__button.swiper__button_next
