@@ -1,5 +1,14 @@
 @include media-breakpoint-up(xs) {
   .title {
+    color: $primary-font-blue;
+    font-weight: 600;
+    margin-bottom: 20px;
+    &_main {
+      font-size: 24px;
+    }
+    &_small {
+      font-size: 18px;
+    }
   }
 }
 

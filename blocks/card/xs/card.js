@@ -28,7 +28,7 @@ export default function initCard()
         item: '[data-role="card-item"]'
     },
     isMobile = $(window).width() < 768,
-    isDesktop = $(window).width() > 991;
+    isDesktop = $(window).width() + 17 > 991;
 
     if (isDesktop && card.imageHover) {
         card.imageHover.on('mouseenter',  function () {
@@ -154,14 +154,8 @@ export default function initCard()
     const swiperPagination = document.querySelectorAll('.swiper-pagination');
     const swiperParents = document.querySelectorAll('[data-swiper="swiper"]');
     let swipers = [];
-    const buttonTwoSlides = `.${'[data-swiper-button-type="twoSlides"]'}`;
-    const buttonOneSlide = `.${'[data-swiper-button-type="oneSlide"]'}`;
-    const buttonThreeSlides = `.${'[data-swiper-button-type="threeSlides"]'}`;
-    const twoSlides = '[data-swiper-type="twoSlides"]';
-    const oneSlide = '[data-swiper-type="oneSlide"]';
-    const threeSlides = '[data-swiper-type="threeSlides"]';
-
     window.addEventListener('DOMContentLoaded', sliderPagination);
+    // window
     window.addEventListener('DOMContentLoaded', sliderSwiper);
 
     //Функция отображения/скрытия пагинации при смене размера окна браузера
@@ -183,52 +177,36 @@ export default function initCard()
     function paginationResponsive () {
         const swipers = document.querySelectorAll("[data-swiper='swiper']");
         swipers.forEach(item => {
-        const swiperBullets = item.querySelectorAll('.swiper-pagination-bullet');
-        swiperBullets.forEach((pagin, i) => {
-            if (swiperBullets.length === 1) {pagin.style.width = 0; return;}
-            pagin.style.width = ((item.offsetWidth - 20) / swiperBullets.length) + 'px';
-            pagin.style.marginLeft = ((item.offsetWidth - 20) / swiperBullets.length)*i + 'px';
-        });
+            const swiperBullets = item.querySelectorAll('.swiper-pagination-bullet');
+            swiperBullets.forEach((pagin, i) => {
+                if (swiperBullets.length === 1) {pagin.style.width = 0; return;}
+                pagin.style.width = ((item.offsetWidth - 20) / swiperBullets.length) + 'px';
+                pagin.style.marginLeft = ((item.offsetWidth - 20) / swiperBullets.length)*i + 'px';
+            });
         });
     }
-    //Настройки объекта-настроек слайдера по-умолчанию
-    // let swiperObject = {
-    //     oneSlide: {
-    //         buttons: {
-    //             buttonPrev: buttonOneSlide,
-    //             buttonNext: butto
-    //         },
-    //         breaks: {
-    //             0: {
-    //                 slidesPerView: 1,
-    //                 slidesPerGroup: 1,
-    //             },
-    //             576: {
-    //                 spaceBetween: 8,
-    //                 slidesPerView: 2,
-    //                 slidesPerGroup: 2,
-    //             },
-    //             768: {
-    //                 spaceBetween: 20
-    //             }
-    //         },
-    //         paginations: {
-    
-    //         }
-    //     },
-    //     twoSlides: {
+    //Функция смены отображения 
+    function switchViewThreeSlides (el) {
+        const isMobile = window.innerWidth < 576;
+        const elPagination = el.querySelector('.swiper-pagination')
+        if (isMobile && !(el.classList.contains('three-slide-mod'))) {
+            el.classList.add('three-slide-mod');
+            elPagination.style.display = 'none';
+            el.parentNode.style.overflowX = 'scroll';
+            console.log(el.classList.contains('three-slide-mod'));
+        } else if(!isMobile && el.classList.contains('three-slide-mod')) {
+            el.classList.remove('three-slide-mod');
+            elPagination.style.display = 'block';
+            el.parentNode.style.overflowX = '';
+            console.log(el.classList.contains('three-slide-mod'));
+        }
+    }
 
-    //     },
-    //     threeSlides: {
-
-    //     },
-
-    // };
     //Настройки объекта-настроек слайдера
     let breaks = {
         0: {
-        slidesPerView: 1,
-        slidesPerGroup: 1,
+        slidesPerView: '',
+        slidesPerGroup: '',
         },
         576: {
         spaceBetween: 8,
@@ -241,7 +219,7 @@ export default function initCard()
     };
     //Объект глубокой копии breaks
     let newBreaks = {};
- b
+ 
     //Создание слайдеров-swiper для различных блоков на странице
     function sliderSwiper () {
         if(swiperParents.length > 0) {
@@ -261,8 +239,8 @@ export default function initCard()
                         },
                         on: {
                             resize: function () {
-                              paginationResponsive();
-                              sliderPagination();
+                                paginationResponsive();
+                                sliderPagination();
                             },
                           },
                         breakpoints: data
@@ -270,19 +248,39 @@ export default function initCard()
                 }
                 if (swiperParent.dataset.swiperType === 'oneSlide') {
                     newBreaks = JSON.parse(JSON.stringify(breaks));
+                    newBreaks[0].slidesPerGroup = 1;
+                    newBreaks[0].slidesPerView = 1;
                     newBreaks[576].slidesPerGroup = 1;
                     newBreaks[576].slidesPerView = 1;
                     swiperCreator(newBreaks, i);
                 }
                 if (swiperParent.dataset.swiperType === 'twoSlides') {
                     newBreaks = JSON.parse(JSON.stringify(breaks));
+                    newBreaks[0].slidesPerGroup = 1;
+                    newBreaks[0].slidesPerView = 1;
                     newBreaks[576].slidesPerGroup = 2;
                     newBreaks[576].slidesPerView = 2;
+                    newBreaks[768].slidesPerGroup = 2;
+                    newBreaks[768].slidesPerView = 2;
                     swiperCreator(newBreaks, i);
                 }
-                if(3) {
-
-                }
+                if(swiperParent.dataset.swiperType === 'threeSlides') {
+                    newBreaks = JSON.parse(JSON.stringify(breaks));
+                    newBreaks[0].slidesPerGroup = 1;
+                    newBreaks[0].slidesPerView = 2;
+                    newBreaks[576].slidesPerGroup = 2;
+                    newBreaks[576].slidesPerView = 2;
+                    newBreaks[768].slidesPerGroup = 2;
+                    newBreaks[768].slidesPerView = 3;
+                    window.addEventListener('resize', () => {
+                        switchViewThreeSlides(swiperParent);
+                    });
+                    window.addEventListener('load', () => {
+                        // console.log(`${}`);
+                        switchViewThreeSlides(swiperParent);
+                    });
+                    swiperCreator(newBreaks, i);
+                }  
 
             });
         }

@@ -2,11 +2,12 @@
   .video-product {
     display: block;
     position: relative;
-    width: 100%;
+    // width: 100%;
+    max-width: 343px;
     margin: 0 auto;
     border-radius: 16px;
     overflow: hidden;
-    min-height: 193px;
+    max-height: 193px;
     &__preview{
       display: block;
       position: relative;
@@ -32,15 +33,15 @@
 
     }
     &__video{
-      display: block;
-      position: absolute;
+      // display: block;
+      // position: absolute;
       // width: 100%;
-      top: 0;
-      left: 0;
+      // top: 0;
+      // left: 0;
       // right: 0;
-      &_mobile{
-        display: none;
-      }
+      // &_mobile{
+      //   display: none;
+      // }
     }
   }
 }

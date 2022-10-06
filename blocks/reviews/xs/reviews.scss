@@ -1,0 +1,9 @@
+@include media-breakpoint-up(xs) {
+  .reviews {
+    padding-bottom: 40px;
+  }
+}
+
+@include media-breakpoint-down(xs) {
+
+}

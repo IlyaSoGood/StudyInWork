@@ -1,0 +1,14 @@
+@include media-breakpoint-up(xs) {
+  .product-description {
+    margin-top: 45px;
+    &__text {
+      font-size: 14px;
+      color: $primary-font-blue;
+      line-height: 24px;
+    }
+  }
+}
+
+@include media-breakpoint-down(xs) {
+
+}

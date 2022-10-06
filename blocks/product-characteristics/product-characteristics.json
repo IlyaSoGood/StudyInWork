@@ -1,5 +1,20 @@
 {
-  "productCharacteristics" : {
-    "item": "name"
-  }
+  "productCharacteristics" : [
+    {
+      "name": "Назначение",
+      "value": "Значение"
+    },{
+      "name": "Материал",
+      "value": "Значение"
+    },{
+      "name": "Цвет",
+      "value": "Значение"
+    },{
+      "name": "Размеры",
+      "value": "Значение"
+    },{
+      "name": "Тип воротника",
+      "value": "Значение"
+    }
+  ]
 }

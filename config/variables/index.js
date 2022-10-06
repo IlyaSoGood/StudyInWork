@@ -31,7 +31,12 @@ module.exports = {
             "video-product",
             "product-examples",
             "product-theses",
-            "product-characteristics"
+            "product-characteristics",
+            "product-description",
+            "reasons",
+            "reviews",
+            "other-products",
+            "watched-products"
         ],
         js: [],
         jsLibs : [

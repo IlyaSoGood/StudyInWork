@@ -1,4 +1,8 @@
 .product-characteristics
-    h2.title Характеристики
+    h2.title.title_small Характеристики
+    .product-characteristics__wrapper
         each item in productCharacteristics
+            .product-characteristics__inner
+                .product-characteristics__name!= item.name
+                .product-characteristics__value!= item.value
             

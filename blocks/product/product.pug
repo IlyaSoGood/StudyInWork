@@ -4,7 +4,7 @@ include ../card/card
     .container
         .row
             .col-12
-                .title Наименование изделия
+                h1.title.title_main Наименование изделия
                 .card__slider-wrapper
                     .card__inner&attributes({'data-swiper-type': 'twoSlides'}, {'data-swiper': 'swiper'})
                         +card-image({swiper: true, longImage: true}, i)
@@ -16,6 +16,12 @@ include ../card/card
                         .card__amount оптовая цена
                     .card__params-descr Введите необходимое количество изделий и отправьте заявку, мы перезвоним Вам, сообщим итоговую стоимость с доставкой и сроками производства
                 include ../form-product/form-product
-                //- include ../video-product/video-product
+                include ../video-product/video-product
                 include ../product-examples/product-examples
                 include ../product-theses/product-theses
+                include ../product-characteristics/product-characteristics
+                include ../product-description/product-description
+                include ../reasons/reasons
+                include ../reviews/reviews
+                include ../other-products/other-products
+                include ../watched-products/watched-products
