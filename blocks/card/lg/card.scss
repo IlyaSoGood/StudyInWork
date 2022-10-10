@@ -1,7 +1,13 @@
 @include media-breakpoint-up(lg) {
+  [data-swiper-type="threeSlides"] {
+    max-width: 85%;
+    .swiper-slide {
+      position: relative;
+      padding: 0 16px;
+    }
+  }
   .card {
     &__inner {
-      // padding-bottom: 33px;
       &.hover {
         position: absolute;
         border: 1px solid #e6e6e6;
@@ -36,10 +42,12 @@
   }
   .swiper__button {
     &_prev {
-      left: 150px;
+      left: 20px;
+      top: 45%;
     }
     &_next {
-      right: 150px;
+      right: 20px;
+      top: 45%;
     }
   }
 }

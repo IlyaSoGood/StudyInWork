@@ -16,4 +16,10 @@
       right: 35px;
     }
   }
+  [data-swiper-type="threeSlides"] {
+    max-width: 620px;
+  }
+  // [data-swiper-type="oneSlide"] {
+  //   max-width: 100%;
+  // }
 }

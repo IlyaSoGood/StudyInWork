@@ -2,12 +2,12 @@
   [data-swiper="swiper"] {
     overflow: hidden;
     max-width: 343px;
+    height: 100%;
     margin: 0 auto;
     position: relative;
     .swiper-wrapper {
       display: flex;
       overflow: visible;
-      // border: none;
       .swiper-slide {
         flex-shrink: 0;
         // max-width: 100%;
@@ -38,19 +38,23 @@
     .swiper-pagination-bullet-active {
       opacity: 1;
     }
-    
   }
+
   .card__inner.three-slide-mod {
     overflow: visible;
     margin: 0;
-    // overflow-x: scroll;
     padding-bottom: 15px;
   }
+  .card.three-slide-mod {
+    overflow: visible;
+    margin: 0;
+    padding-bottom: 15px;
+  }
+
   .card {
     &__inner {
       margin-bottom: 25px;
     }
-
     &-link {
       display: block;
       &:hover {
@@ -58,7 +62,6 @@
       }
     }
     &__image {
-      // border: 1px solid #e6e6e6;
       border-radius: 16px;
       overflow: hidden;
       margin: 0 auto;
@@ -100,7 +103,6 @@
     &__hidden {
       display: none;
     }
-
   }
   .card-image__bottom-line {
     position: absolute;

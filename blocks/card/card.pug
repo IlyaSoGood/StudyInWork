@@ -39,14 +39,29 @@ mixin card-image(object, i)
 mixin card(objectType, count)
     -var dataCardHover = '';
     -var dataCardSwitcher = '';
+    -var swiperWrapper = '';
+    -var swiperSlide = '';
+    -var dataSwiperType = '';
+    -var dataSwiper = '';
+    -var classRow = 'row'
+    -var classColLg4 = 'col-lg-4';
+    -var classCol6 = 'col-6';
     if (objectType.cardHover)
         - dataCardHover = 'card-hover';
     if (objectType.cardSwitcher)
         - dataCardSwitcher = 'card-switcher';
-    .card
-        .row
+    if (objectType.cardSwiper)
+        - swiperWrapper = 'swiper-wrapper';
+        - swiperSlide = 'swiper-slide';
+        - dataSwiperType = 'threeSlides'; 
+        - dataSwiper = 'swiper';
+        - classRow = '';
+        - classColLg4 = '';
+        - classCol6 = '';
+    .card(data-swiper-type=dataSwiperType data-swiper=dataSwiper)
+        div(class=swiperWrapper class=classRow)
             - for (var i=0; i < count; i++)
-                .col-6.col-lg-4
+                div(class=classCol6 class=classColLg4 class=swiperSlide)
                     .card__inner(data-hover=dataCardHover data-switcher=dataCardSwitcher)
                         a(href="#").card-link
                             +card-image({longImage: true}, i)
@@ -58,3 +73,8 @@ mixin card(objectType, count)
                         .card__hidden
                             button.buttons.buttons_blue(data-link="#modal-request") Оставить заявку
                             a(href="#").buttons.buttons_light-blue Подробнее
+        if (objectType.cardSwiper)
+            .swiper-pagination
+    if(objectType.cardSwiper)
+        .swiper__button.swiper__button_prev
+        .swiper__button.swiper__button_next

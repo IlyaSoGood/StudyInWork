@@ -83,18 +83,23 @@ export default function initCard()
             hideImg();
 
             if(isDesktop) {
-
                 let imageRect = image.getBoundingClientRect(),
+                numArea, widthArea;
                 // Расчет количества невидимых областей
-                numArea = imgs.length,
-                // Расчет ширины невидимой области наведения
-                widthArea = imageRect.width / numArea;
+                numArea = imgs.length;
+                // console.log(widthArea);
+                // console.log(image.clientWidth);
             
                 // Создание полоски-индикатора фото
                 const bottomLine = document.createElement('div');
                 bottomLine.classList.add('card-image__bottom-line');
                 image.append(bottomLine);
-                bottomLine.style.width = widthArea + 'px';
+                
+                const timerId = setTimeout(function () {
+                    widthArea = image.clientWidth / numArea;
+                    bottomLine.style.width = widthArea - 10 + 'px';
+                    console.log(`${widthArea} = ${image.clientWidth} / ${numArea}`);
+                }, 1000);
 
                 // Получение прямоугольника-координат при скролле страницы
                 window.addEventListener('resize', function(){
@@ -106,6 +111,7 @@ export default function initCard()
 
                 let sliderOnMove = function () {
                     image.addEventListener('mousemove', (e) => {
+                        imageRect = image.getBoundingClientRect();
                         // let x = e.pageX,
                         //     y = e.pageY;
                         // console.log(`${image.offsetLeft}:${iamge.offsetTop}`);  Смещение img относительно контейнера col
@@ -123,23 +129,28 @@ export default function initCard()
                         let count = Math.floor(relX/widthArea);
                         // 4. Отображение нужного img
                         function showImg() {
-                            imgs.forEach((item, j) => {
-                                if (j !== count) {
-                                    item.classList.add('hide');
-                                    item.classList.remove('show');
-                                }
-                            });
-                            imgs[count].classList.remove('hide');
-                            imgs[count].classList.add('show');
+                            if (count < 4) {
+                                imgs.forEach((item, j) => {
+                                    if (j !== count) {
+                                        item.classList.add('hide');
+                                        item.classList.remove('show');
+                                    }
+                                });
+                                imgs[count].classList.remove('hide');
+                                imgs[count].classList.add('show');
+                            }
                         }
                         showImg();                
                         // 5. Перемещение полоски-индикатора в нужную область
                         bottomLine.style.marginLeft = widthArea * count + 'px';
                         // Использование консоли при разработке функции
                             // console.log(JSON.stringify(imageRect));
+                            // console.log(window.pageXOffset);
                             // console.log(`(relX)${relX} = ${e.pageX} - ${left}`);
                             // console.log(`left = ${imageRect.left} + ${window.pageXOffset}`);
                             // console.log(`${numArea}:${widthArea}`);
+                            // console.log(image.clientWidth);
+                            // console.log(widthArea);
                             // console.log(count);
                     });
                 };
@@ -193,12 +204,12 @@ export default function initCard()
             el.classList.add('three-slide-mod');
             elPagination.style.display = 'none';
             el.parentNode.style.overflowX = 'scroll';
-            console.log(el.classList.contains('three-slide-mod'));
+            // console.log(el.classList.contains('three-slide-mod'));
         } else if(!isMobile && el.classList.contains('three-slide-mod')) {
             el.classList.remove('three-slide-mod');
             elPagination.style.display = 'block';
             el.parentNode.style.overflowX = '';
-            console.log(el.classList.contains('three-slide-mod'));
+            // console.log(el.classList.contains('three-slide-mod'));
         }
     }
 
@@ -276,7 +287,6 @@ export default function initCard()
                         switchViewThreeSlides(swiperParent);
                     });
                     window.addEventListener('load', () => {
-                        // console.log(`${}`);
                         switchViewThreeSlides(swiperParent);
                     });
                     swiperCreator(newBreaks, i);
