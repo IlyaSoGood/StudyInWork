@@ -98,7 +98,7 @@ export default function initCard()
                 const timerId = setTimeout(function () {
                     widthArea = image.clientWidth / numArea;
                     bottomLine.style.width = widthArea - 10 + 'px';
-                    console.log(`${widthArea} = ${image.clientWidth} / ${numArea}`);
+                    // console.log(`${widthArea} = ${image.clientWidth} / ${numArea}`);
                 }, 1000);
 
                 // Получение прямоугольника-координат при скролле страницы
@@ -216,16 +216,24 @@ export default function initCard()
     //Настройки объекта-настроек слайдера
     let breaks = {
         0: {
-        slidesPerView: '',
-        slidesPerGroup: '',
+            slidesPerView: '',
+            slidesPerGroup: '',
         },
         576: {
-        spaceBetween: 8,
-        slidesPerView: '',
-        slidesPerGroup: '',
+            spaceBetween: 8,
+            slidesPerView: '',
+            slidesPerGroup: '',
         },
         768: {
-        spaceBetween: 20
+            spaceBetween: 20
+        },
+        992: {
+            slidesPerView: '',
+            slidesPerGroup: '',
+        },
+        1200: {
+            slidesPerView: '',
+            slidesPerGroup: '',
         }
     };
     //Объект глубокой копии breaks
@@ -263,6 +271,10 @@ export default function initCard()
                     newBreaks[0].slidesPerView = 1;
                     newBreaks[576].slidesPerGroup = 1;
                     newBreaks[576].slidesPerView = 1;
+                    newBreaks[992].slidesPerGroup = 1;
+                    newBreaks[992].slidesPerView = 1;
+                    newBreaks[1200].slidesPerGroup = 1;
+                    newBreaks[1200].slidesPerView = 1;
                     swiperCreator(newBreaks, i);
                 }
                 if (swiperParent.dataset.swiperType === 'twoSlides') {
@@ -273,6 +285,10 @@ export default function initCard()
                     newBreaks[576].slidesPerView = 2;
                     newBreaks[768].slidesPerGroup = 2;
                     newBreaks[768].slidesPerView = 2;
+                    newBreaks[992].slidesPerGroup = 2;
+                    newBreaks[992].slidesPerView = 2;
+                    newBreaks[1200].slidesPerGroup = 2;
+                    newBreaks[1200].slidesPerView = 2;
                     swiperCreator(newBreaks, i);
                 }
                 if(swiperParent.dataset.swiperType === 'threeSlides') {
@@ -281,8 +297,14 @@ export default function initCard()
                     newBreaks[0].slidesPerView = 2;
                     newBreaks[576].slidesPerGroup = 2;
                     newBreaks[576].slidesPerView = 2;
-                    newBreaks[768].slidesPerGroup = 2;
+                    newBreaks[768].slidesPerGroup = 1;
                     newBreaks[768].slidesPerView = 3;
+                    newBreaks[992].spaceBetween = 0;
+                    newBreaks[992].slidesPerGroup = 1;
+                    newBreaks[992].slidesPerView = 3;
+                    newBreaks[1200].spaceBetween = 0;
+                    newBreaks[1200].slidesPerGroup = 1;
+                    newBreaks[1200].slidesPerView = 3;
                     window.addEventListener('resize', () => {
                         switchViewThreeSlides(swiperParent);
                     });

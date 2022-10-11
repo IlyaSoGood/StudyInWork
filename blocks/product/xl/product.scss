@@ -1,4 +1,8 @@
 @include media-breakpoint-up(xl) {
   .product {
+    &__container {
+      display: flex;
+      flex-wrap: wrap;
+    }
   }
 }

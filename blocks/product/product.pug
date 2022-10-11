@@ -4,22 +4,24 @@ include ../card/card
     .container
         .row
             .col-12
-                h1.title.title_main Наименование изделия
-                .card__slider-wrapper
-                    .card__inner&attributes({'data-swiper-type': 'twoSlides'}, {'data-swiper': 'swiper'})
-                        +card-image({swiper: true, longImage: true}, i)
-                    .swiper__button.swiper__button_prev
-                    .swiper__button.swiper__button_next
-                .card__params_product
-                    .card__params-wrapper
-                        .card__price от 3 990 руб.
-                        .card__amount оптовая цена
-                    .card__params-descr Введите необходимое количество изделий и отправьте заявку, мы перезвоним Вам, сообщим итоговую стоимость с доставкой и сроками производства
-                include ../form-product/form-product
-                include ../video-product/video-product
-                include ../product-examples/product-examples
-                include ../product-theses/product-theses
-                include ../product-characteristics/product-characteristics
+                .product__container
+                    h1.title.title_main Наименование изделия
+                    .card__slider-wrapper
+                        .card__inner&attributes({'data-swiper-type': 'twoSlides'}, {'data-swiper': 'swiper'})
+                            +card-image({swiper: true, longImage: true}, i)
+                        .swiper__button.swiper__button_prev
+                        .swiper__button.swiper__button_next
+                    .card__params_product
+                        .card__params-wrapper
+                            .card__price от 3 990 руб.
+                            .card__amount оптовая цена
+                        .card__params-descr Введите необходимое количество изделий и отправьте заявку, мы перезвоним Вам, сообщим итоговую стоимость с доставкой и сроками производства
+                    include ../form-product/form-product
+                    include ../video-product/video-product
+                    include ../product-examples/product-examples
+                    include ../product-theses/product-theses
+                    include ../product-characteristics/product-characteristics
+
                 include ../product-description/product-description
                 include ../reasons/reasons
                 include ../reviews/reviews

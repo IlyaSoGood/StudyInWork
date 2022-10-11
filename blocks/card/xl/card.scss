@@ -18,6 +18,16 @@
       font-size: 14px;
     }
   }
+  [data-swiper-type="threeSlides"] {
+    max-width: 100%;
+  }
+  [data-swiper="swiper"] {
+    .swiper-wrapper {
+      .swiper-slide {
+        max-width: 100%;
+      }
+    }
+  }
 }
 
 @media (min-width: 1400px) {
